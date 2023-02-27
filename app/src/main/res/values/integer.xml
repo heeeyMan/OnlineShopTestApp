@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="size_password">10</integer>
+    <integer name="weight_700">700</integer>
+    <integer name="weight_600">600</integer>
+    <integer name="weight_500">500</integer>
+    <integer name="weight_400">400</integer>
+</resources>

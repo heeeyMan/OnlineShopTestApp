@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/view_size_114"
+    android:layout_height="@dimen/view_size_149">
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/latest_item_background"/>
+    <TextView
+        android:id="@+id/category_name"
+        android:layout_width="@dimen/view_size_35"
+        android:layout_height="@dimen/view_size_12"
+        android:background="@drawable/latest_category_back"
+        android:layout_marginTop="@dimen/margin_91"
+        android:textColor="@color/black_800"
+        android:textSize="@dimen/text_size_6"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_medium"
+        android:textStyle="bold"
+        android:alpha="0.85"
+        android:layout_marginStart="@dimen/margin_7"/>
+
+    <ImageView
+        android:id="@+id/add_icon"
+        android:layout_width="@dimen/circle_radius_20"
+        android:layout_height="@dimen/circle_radius_20"
+        android:src="@drawable/plus"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="@dimen/margin_5"
+        android:layout_marginEnd="@dimen/margin_5"
+        android:paddingHorizontal="@dimen/padding_6"
+        android:paddingVertical="@dimen/padding_6"
+        android:background="@drawable/circle_background" />
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="@dimen/view_size_75"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_9"
+        android:textStyle="bold"
+        android:layout_gravity="bottom"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="@dimen/margin_17"
+        android:layout_marginStart="@dimen/margin_7" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_9"
+        android:textStyle="bold"
+        android:layout_gravity="bottom"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginBottom="@dimen/margin_7"
+        android:layout_marginStart="@dimen/margin_7" />
+</FrameLayout>
