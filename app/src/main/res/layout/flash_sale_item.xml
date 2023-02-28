@@ -6,14 +6,12 @@
     <ImageView
         android:id="@+id/background_img"
         android:layout_width="match_parent"
-        android:src="@drawable/flash_icn"
         android:layout_height="match_parent"
         android:background="@drawable/flash_item_background"/>
     <TextView
         android:id="@+id/category_name"
         android:layout_width="@dimen/view_size_50"
         android:layout_height="@dimen/view_size_17"
-        android:text="Kids"
         android:layout_gravity="bottom"
         android:background="@drawable/flash_category_back"
         android:layout_marginBottom="@dimen/margin_83"
@@ -43,7 +41,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_13"
         android:textStyle="bold"
-        android:text="New balance sneakers"
         android:layout_gravity="bottom"
         android:fontFamily="@font/poppins_regular"
         android:layout_marginBottom="@dimen/margin_41"
@@ -54,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="$ 33,00"
         android:textSize="@dimen/text_size_10"
         android:textStyle="bold"
         android:layout_gravity="bottom"
@@ -76,7 +72,7 @@
         android:background="@drawable/circle_background" />
 
     <TextView
-        android:id="@+id/sale"
+        android:id="@+id/discount"
         android:layout_width="@dimen/view_size_50"
         android:layout_height="@dimen/view_size_17"
         android:layout_gravity="end"
@@ -85,7 +81,6 @@
         android:background="@drawable/sale_category_back"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
-        android:text="30% off"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_10"
         android:textStyle="bold" />

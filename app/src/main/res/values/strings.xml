@@ -43,7 +43,7 @@
     <string name="flash_sale">Flash Sale</string>
     <string name="brands">Brands</string>
     <string name="price">$ %1$s</string>
-    <string name="discount">%1$s % off</string>
+    <string name="discount">%1$s %% off</string>
 
     <!-- More details -->
     <string name="color">Color:</string>

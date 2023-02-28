@@ -12,7 +12,7 @@ class ProfileDataModel(
     private val context: Context,
     private val data: ProfileItem
 ) : Item() {
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint("UseCompatLoadingForDrawables", "SuspiciousIndentation")
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.icon.setImageDrawable(context.resources.getDrawable(data.iconId, null))
         viewHolder.field_name.text = context.getString(data.fieldNameId)

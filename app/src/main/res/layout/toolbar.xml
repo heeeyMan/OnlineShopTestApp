@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:fontFamily="@font/montserrat_medium"/>
+        android:fontFamily="@font/montserrat_black"/>
     <LinearLayout
         android:id="@+id/profile_icon"
         android:layout_width="wrap_content"
