@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.assemblies.profile.ProfileAssembly
 import com.example.testapp.databinding.FragmentProfileBinding
+import com.example.testapp.ui.utils.PaddingForLastElement
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -25,10 +26,12 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val bottomPadding = 77
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         profileAdapter = GroupAdapter()
         recyclerView = binding?.profileList
         recyclerView?.layoutManager = LinearLayoutManager(context)
+        recyclerView?.addItemDecoration(PaddingForLastElement(bottomPadding))
         recyclerView?.adapter = profileAdapter
         profileViewModel.initProfileList()
         return binding?.root

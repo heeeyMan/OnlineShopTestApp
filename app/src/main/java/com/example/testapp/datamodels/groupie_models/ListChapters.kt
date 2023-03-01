@@ -17,8 +17,9 @@ class ListChapters(
         val padding = 21
         val recyclerView = viewHolder.categories_list
         recyclerView.addItemDecoration(PaddingBetweenItems(padding))
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = GroupAdapter<GroupieViewHolder>().apply {addAll(items) }
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = GroupAdapter<GroupieViewHolder>().apply { addAll(items) }
     }
 
     override fun getLayout() = R.layout.list_chapters

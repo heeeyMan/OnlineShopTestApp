@@ -3,7 +3,6 @@ package com.example.testapp.datamodels.groupie_models
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testapp.R
-import com.example.testapp.datamodels.LatestItem
 import com.example.testapp.ui.utils.PaddingBetweenItems
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -19,7 +18,6 @@ class ListCategories(
     private val items: List<Item>
 ) : Item() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val f = R.layout.list_categories
         val padding = when (items.firstOrNull()?.layout) {
             R.layout.latest_item -> 12
             R.layout.flash_sale_item -> 9

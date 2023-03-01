@@ -14,7 +14,12 @@ class LatestDataModel(
 ) : Item() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        viewHolder.background_img.setImageDrawable(context.resources.getDrawable(data.imageId, null))
+        viewHolder.background_img.setImageDrawable(
+            context.resources.getDrawable(
+                data.imageId,
+                null
+            )
+        )
         viewHolder.category_name.text = context.getString(data.category)
         viewHolder.item_name.text = data.itemName
         viewHolder.price.text = context.getString(R.string.price, data.price)

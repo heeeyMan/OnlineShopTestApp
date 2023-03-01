@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class PaddingBetweenItems(private val padding: Int) : RecyclerView.ItemDecoration() {
+class PaddingForLastElement(private val padding: Int) : RecyclerView.ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
@@ -13,10 +13,10 @@ class PaddingBetweenItems(private val padding: Int) : RecyclerView.ItemDecoratio
     ) {
         super.getItemOffsets(outRect, view, parent, state)
         parent.adapter?.let { adapter ->
-            outRect.right =
+            outRect.bottom =
                 when (parent.getChildAdapterPosition(view)) {
-                    RecyclerView.NO_POSITION, adapter.itemCount - 1 -> 0
-                    else -> padding
+                    adapter.itemCount - 1 -> padding
+                    else -> 0
                 }
         }
     }

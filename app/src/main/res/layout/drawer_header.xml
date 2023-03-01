@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/drawer_header_background"
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_size_50"
-        android:src="@drawable/avatar"
         android:layout_marginTop="@dimen/margin_17"
-        />
+        android:src="@drawable/avatar" />
+
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_black"
-        android:textColor="@color/gray_850"
-        android:textSize="@dimen/text_size_15"
-        android:text="@string/satria_adhi_pradana"
         android:layout_gravity="center"
-        android:layout_marginVertical="@dimen/margin_17"/>
+        android:layout_marginVertical="@dimen/margin_17"
+        android:fontFamily="@font/montserrat_black"
+        android:text="@string/satria_adhi_pradana"
+        android:textColor="@color/gray_850"
+        android:textSize="@dimen/text_size_15" />
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -10,21 +10,21 @@
         android:id="@+id/icon"
         android:layout_width="@dimen/circle_radius_40"
         android:layout_height="@dimen/circle_radius_40"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/circle_background"
         android:paddingHorizontal="@dimen/padding_8"
         android:paddingVertical="@dimen/padding_8"
-        android:background="@drawable/circle_background" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/field_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:textStyle="bold"
-        android:textColor="@color/black_800"
         android:layout_marginStart="@dimen/margin_6"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/black_800"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintTop_toTopOf="parent" />

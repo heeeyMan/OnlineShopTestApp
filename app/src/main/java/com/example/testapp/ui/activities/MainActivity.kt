@@ -45,11 +45,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     binding.drawerBar.mainToolbar.profileIcon.visibility = View.VISIBLE
                     binding.drawerBar.mainToolbar.toolbarTitle.setTextSize(
-                        0,
+                        resources.getInteger(R.integer.zero),
                         resources.getDimension(R.dimen.text_size_20)
                     )
                     val title = getText(R.string.trade_by_data) as SpannedString
-                    val annotations = title.getSpans(0, title.length, Annotation::class.java)
+                    val annotations = title.getSpans(
+                        resources.getInteger(R.integer.zero),
+                        title.length, Annotation::class.java
+                    )
                     val spannableTitle = SpannableString(title)
                     val annotation = annotations.find { it.key == annotationKey }
                     if (annotation?.value != null) {

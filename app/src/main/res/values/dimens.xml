@@ -43,7 +43,7 @@
     <dimen name="text_size_26">26sp</dimen>
     <dimen name="size_user_icon">61dp</dimen>
 
-    <!-- Margin & Padding -->
+    <!-- Margin -->
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_6">6dp</dimen>
@@ -53,6 +53,7 @@
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_11">11dp</dimen>
     <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_14">14dp</dimen>
     <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_17">17dp</dimen>
     <dimen name="margin_19">19dp</dimen>
@@ -64,10 +65,14 @@
     <dimen name="margin_44">44dp</dimen>
     <dimen name="margin_46">46dp</dimen>
     <dimen name="margin_47">47dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_77">77dp</dimen>
     <dimen name="margin_91">91dp</dimen>
     <dimen name="margin_83">83dp</dimen>
     <dimen name="margin_121">121dp</dimen>
 
+    <!-- Padding -->
+    <dimen name="padding_1">1dp</dimen>
     <dimen name="padding_2">2dp</dimen>
     <dimen name="padding_4">4dp</dimen>
     <dimen name="padding_6">6dp</dimen>
@@ -77,13 +82,14 @@
     <dimen name="padding_15">15dp</dimen>
     <dimen name="padding_56">56dp</dimen>
 
-    <!-- width height sizes -->
+    <!-- View sizes -->
     <dimen name="view_size_12">12dp</dimen>
     <dimen name="view_size_17">17dp</dimen>
     <dimen name="view_size_24">24dp</dimen>
     <dimen name="view_size_35">35dp</dimen>
     <dimen name="view_size_40">40dp</dimen>
     <dimen name="view_size_50">50dp</dimen>
+    <dimen name="view_size_63">63dp</dimen>
     <dimen name="view_size_75">75dp</dimen>
     <dimen name="view_size_87">87dp</dimen>
     <dimen name="view_size_114">114dp</dimen>
@@ -92,6 +98,4 @@
     <dimen name="view_size_221">221dp</dimen>
     <dimen name="view_size_262">262dp</dimen>
     <dimen name="view_size_290">290dp</dimen>
-    <dimen name="padding_1">1dp</dimen>
-
 </resources>

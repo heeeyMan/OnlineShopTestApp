@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.example.testapp.R
 import com.example.testapp.datamodels.ChapterItem
-import com.example.testapp.datamodels.LatestItem
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.chapter_item.*

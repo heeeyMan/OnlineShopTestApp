@@ -6,7 +6,7 @@ import com.example.testapp.models.profile.IProfileModel
 import com.xwray.groupie.kotlinandroidextensions.Item
 
 class ProfileViewModel(
-    val model: IProfileModel
+    private val model: IProfileModel
 ) : ViewModel() {
     val profileItems = MutableLiveData<List<Item>>()
     fun initProfileList() {
