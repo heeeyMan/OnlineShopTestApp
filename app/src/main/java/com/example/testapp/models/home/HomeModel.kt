@@ -66,8 +66,9 @@ class HomeModel(private val context: Context) : IHomeModel {
 
         return listOf(
             ListChapters(context, listChapters),
-            ListCategories(context, R.string.latest_deals, R.string.view_all, listLatest),
-            ListCategories(context, R.string.latest_deals, R.string.view_all, listFlash),
+            ListCategories(context, R.string.latest, R.string.view_all, listLatest),
+            ListCategories(context, R.string.flash_sale, R.string.view_all, listFlash),
+            ListCategories(context, R.string.flash_sale, R.string.view_all, listFlash)
         )
     }
 }

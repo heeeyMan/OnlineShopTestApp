@@ -92,5 +92,6 @@
     <dimen name="view_size_221">221dp</dimen>
     <dimen name="view_size_262">262dp</dimen>
     <dimen name="view_size_290">290dp</dimen>
+    <dimen name="padding_1">1dp</dimen>
 
 </resources>

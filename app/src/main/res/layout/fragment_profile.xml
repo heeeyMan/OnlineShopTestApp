@@ -17,6 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:paddingVertical="@dimen/padding_1"
+        android:paddingHorizontal="@dimen/padding_1"
         app:shapeAppearance="@style/IconProfileStyle"
         app:strokeColor="@color/gray_450"
         app:strokeWidth="@dimen/stroke_width" />

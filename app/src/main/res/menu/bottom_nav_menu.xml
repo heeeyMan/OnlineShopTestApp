@@ -21,5 +21,4 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profile"
         android:title="@string/text_empty" />
-
 </menu>
