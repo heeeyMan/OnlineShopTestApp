@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val bottomPadding = 77
+        val bottomPadding = 200
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeAdapter = GroupAdapter()
         recyclerView = binding?.categoriesList
@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
         homeViewModel.apply {
             tradeData.observe(viewLifecycleOwner) {
                 recyclerView?.adapter = homeAdapter?.apply {
+                    clear()
                     addAll(it)
                 }
             }

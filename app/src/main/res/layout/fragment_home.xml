@@ -48,7 +48,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_50"
         android:layout_marginStart="@dimen/margin_11"
-        android:layout_marginBottom="@dimen/margin_77"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

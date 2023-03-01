@@ -93,5 +93,6 @@
         android:layout_height="@dimen/circle_radius_25"
         android:layout_marginStart="@dimen/margin_7"
         android:layout_marginTop="@dimen/margin_7"
+        android:src="@drawable/man"
         android:background="@drawable/circle_background" />
 </FrameLayout>
