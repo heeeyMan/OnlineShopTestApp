@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.assemblies.profile.ProfileAssembly
 import com.example.testapp.databinding.FragmentProfileBinding
-import com.example.testapp.ui.utils.PaddingForLastElement
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 

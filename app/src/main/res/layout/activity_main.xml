@@ -18,6 +18,7 @@
         android:layout_width="@dimen/zero"
         android:layout_height="@dimen/view_size_63"
         android:background="@drawable/bottom_nav_background"
+        android:elevation="@dimen/zero"
         app:itemIconTint="@drawable/bottom_menu_selector_item"
         app:itemTextColor="@drawable/bottom_menu_selector_item"
         app:layout_constraintBottom_toBottomOf="parent"

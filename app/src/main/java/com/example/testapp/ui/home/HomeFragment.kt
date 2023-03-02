@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.assemblies.home.HomeAssembly
 import com.example.testapp.databinding.FragmentHomeBinding
-import com.example.testapp.ui.utils.PaddingForLastElement
+import com.example.testapp.ui.item_decorations.PaddingForLastElement
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -32,12 +32,12 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val bottomPadding = 200
+        val bottomPadding = 77
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeAdapter = GroupAdapter()
         recyclerView = binding?.categoriesList
         recyclerView?.layoutManager = LinearLayoutManager(context)
-        recyclerView?.addItemDecoration(PaddingForLastElement(bottomPadding))
+        recyclerView?.addItemDecoration(PaddingForLastElement(bottomPadding, requireContext()))
         recyclerView?.adapter = homeAdapter
         homeViewModel.initProfileList()
         return binding?.root

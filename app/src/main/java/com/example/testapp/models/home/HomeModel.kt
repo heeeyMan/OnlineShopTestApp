@@ -62,7 +62,13 @@ class HomeModel(private val context: Context) : IHomeModel {
         )
 
         val listFlash =
-            listOf(FlashDataModel(context, sneakersBlack), FlashDataModel(context, sneakersWhite))
+            listOf(
+                FlashDataModel(context, sneakersBlack),
+                FlashDataModel(context, sneakersWhite),
+                FlashDataModel(context, sneakersWhite),
+                FlashDataModel(context, sneakersWhite),
+                FlashDataModel(context, sneakersWhite)
+            )
 
         return listOf(
             ListChapters(context, listChapters),

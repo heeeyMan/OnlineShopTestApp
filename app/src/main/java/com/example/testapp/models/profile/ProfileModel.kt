@@ -30,7 +30,7 @@ class ProfileModel(private val context: Context) : IProfileModel {
             context,
             ProfileItem(
                 iconId = R.drawable.folder,
-                fieldNameId = R.string.trade_store,
+                fieldNameId = R.string.balance,
                 price = "1593",
                 imageId = null
             )
