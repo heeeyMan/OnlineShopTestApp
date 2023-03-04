@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageSwitcher
+        android:id="@+id/general_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="@drawable/item_background_cor_9"/>
+
+    <include
+        android:id="@+id/like_element"
+        layout="@layout/like_element"
+        android:layout_width="@dimen/view_size_42"
+        android:layout_height="@dimen/view_size_95"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/margin_304"
+        android:layout_marginBottom="@dimen/margin_28" />
+</FrameLayout>

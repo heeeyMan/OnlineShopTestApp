@@ -1,13 +1,16 @@
 <resources>
     <!-- Main values -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="zero">0dp</dimen>
+
+    <!-- Stroke width -->
     <dimen name="stroke_width">1dp</dimen>
+    <dimen name="stroke_width_2">2dp</dimen>
+    <dimen name="stroke_width_5">5dp</dimen>
 
     <!-- Shapes radius -->
     <dimen name="corner_user_icon">50%</dimen>
     <dimen name="corner_radius_5">5dp</dimen>
+    <dimen name="corner_radius_6">6dp</dimen>
     <dimen name="corner_radius_8">8dp</dimen>
     <dimen name="corner_radius_9">9dp</dimen>
     <dimen name="corner_radius_11">11dp</dimen>
@@ -39,9 +42,11 @@
     <dimen name="text_size_13">13sp</dimen>
     <dimen name="text_size_14">14sp</dimen>
     <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
     <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22dp</dimen>
     <dimen name="text_size_26">26sp</dimen>
-    <dimen name="size_user_icon">61dp</dimen>
+    <dimen name="text_size_38">38dp</dimen>
 
     <!-- Margin -->
     <dimen name="margin_4">4dp</dimen>
@@ -58,21 +63,33 @@
     <dimen name="margin_17">17dp</dimen>
     <dimen name="margin_19">19dp</dimen>
     <dimen name="margin_21">21dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+    <dimen name="margin_23">23dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_28">28dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_32">32dp</dimen>
     <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_37">37dp</dimen>
+    <dimen name="margin_38">38dp</dimen>
+    <dimen name="margin_39">39dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
     <dimen name="margin_41">41dp</dimen>
     <dimen name="margin_44">44dp</dimen>
     <dimen name="margin_46">46dp</dimen>
     <dimen name="margin_47">47dp</dimen>
     <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_76">76dp</dimen>
     <dimen name="margin_91">91dp</dimen>
     <dimen name="margin_83">83dp</dimen>
     <dimen name="margin_121">121dp</dimen>
+    <dimen name="margin_304">304dp</dimen>
+
 
     <!-- Padding -->
     <dimen name="padding_1">1dp</dimen>
     <dimen name="padding_2">2dp</dimen>
+    <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_4">4dp</dimen>
     <dimen name="padding_6">6dp</dimen>
     <dimen name="padding_8">8dp</dimen>
@@ -87,15 +104,33 @@
     <dimen name="view_size_24">24dp</dimen>
     <dimen name="view_size_35">35dp</dimen>
     <dimen name="view_size_40">40dp</dimen>
+    <dimen name="view_size_42">42dp</dimen>
+    <dimen name="view_size_44">44dp</dimen>
     <dimen name="view_size_50">50dp</dimen>
+    <dimen name="size_user_icon">61dp</dimen>
     <dimen name="view_size_63">63dp</dimen>
     <dimen name="view_size_75">75dp</dimen>
     <dimen name="view_size_87">87dp</dimen>
+    <dimen name="view_size_95">95dp</dimen>
     <dimen name="view_size_114">114dp</dimen>
+    <dimen name="view_size_117">117dp</dimen>
     <dimen name="view_size_149">149dp</dimen>
+    <dimen name="view_size_170">170dp</dimen>
     <dimen name="view_size_174">174dp</dimen>
     <dimen name="view_size_221">221dp</dimen>
     <dimen name="view_size_262">262dp</dimen>
+    <dimen name="view_size_279">279dp</dimen>
     <dimen name="view_size_290">290dp</dimen>
-    <dimen name="stroke_width_5">5dp</dimen>
+    <dimen name="view_size_328">328dp</dimen>
+    <dimen name="view_size_34">34dp</dimen>
+    <dimen name="view_size_26">26dp</dimen>
+    <dimen name="view_size_289">289dp</dimen>
+    <dimen name="view_size_29">29dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="view_size_46">46dp</dimen>
+    <dimen name="margin_65">65dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="margin_72">72dp</dimen>
+
 </resources>

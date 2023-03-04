@@ -7,23 +7,28 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.testapp.ui.home.HomeFragment"
+        android:name="com.example.testapp.ui.modules.home.HomeFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_navigation_more"
-            app:destination="@id/navigation_more" />
+            app:destination="@id/navigation_more">
+            <argument
+                android:name="myArg"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.example.testapp.ui.more_details.MoreDetailsFragment"
+        android:name="com.example.testapp.ui.modules.more_details.MoreDetailsFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_more_details" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.testapp.ui.profile.ProfileFragment"
+        android:name="com.example.testapp.ui.modules.profile.ProfileFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_profile" />
 </navigation>

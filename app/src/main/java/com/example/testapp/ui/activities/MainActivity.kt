@@ -1,14 +1,10 @@
 package com.example.testapp.ui.activities
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannedString
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import    android.text.Annotation
-import android.text.Spannable
-import android.text.style.ForegroundColorSpan
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.testapp.R
 import com.example.testapp.databinding.ActivityMainBinding
+import com.example.testapp.utils.ZERO
+import com.example.testapp.utils.colorItem
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,36 +41,36 @@ class MainActivity : AppCompatActivity() {
             val annotationValue = "data"
             when (destination.id) {
                 R.id.navigation_home -> {
-                    binding.drawerBar.mainToolbar.profileIcon.visibility = View.VISIBLE
-                    binding.drawerBar.mainToolbar.toolbarTitle.setTextSize(
-                        resources.getInteger(R.integer.zero),
-                        resources.getDimension(R.dimen.text_size_20)
-                    )
-                    val title = getText(R.string.trade_by_data) as SpannedString
-                    val annotations = title.getSpans(
-                        resources.getInteger(R.integer.zero),
-                        title.length, Annotation::class.java
-                    )
-                    val spannableTitle = SpannableString(title)
-                    val annotation = annotations.find { it.key == annotationKey }
-                    if (annotation?.value != null) {
-                        annotations.find { it.value == annotationValue }
-                        spannableTitle.setSpan(
-                            ForegroundColorSpan(Color.BLUE),
-                            title.getSpanStart(annotation),
-                            title.getSpanEnd(annotation),
-                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    showToolBar()
+                    showBottomNavBar()
+                    binding.apply {
+                        drawerBar.mainToolbar.profileIcon.visibility = View.VISIBLE
+                        drawerBar.mainToolbar.toolbarTitle.setTextSize(
+                            ZERO,
+                            resources.getDimension(R.dimen.text_size_20)
+                        )
+                        val title = getText(R.string.trade_by_data) as SpannedString
+                        drawerBar.mainToolbar.toolbarTitle.text =
+                            SpannableString(title).colorItem(title, annotationKey, annotationValue)
+                    }
+                }
+
+                R.id.navigation_profile -> {
+                    showToolBar()
+                    showBottomNavBar()
+                    binding.apply {
+                        drawerBar.mainToolbar.toolbarTitle.text = getString(R.string.profile)
+                        drawerBar.mainToolbar.profileIcon.visibility = View.GONE
+                        drawerBar.mainToolbar.toolbarTitle.setTextSize(
+                            ZERO,
+                            resources.getDimension(R.dimen.text_size_15)
                         )
                     }
-                    binding.drawerBar.mainToolbar.toolbarTitle.text = spannableTitle
                 }
-                R.id.navigation_profile -> {
-                    binding.drawerBar.mainToolbar.toolbarTitle.text = getString(R.string.profile)
-                    binding.drawerBar.mainToolbar.profileIcon.visibility = View.GONE
-                    binding.drawerBar.mainToolbar.toolbarTitle.setTextSize(
-                        0,
-                        resources.getDimension(R.dimen.text_size_15)
-                    )
+
+                R.id.navigation_more -> {
+                    hideBottomNavBar()
+                    hideToolBar()
                 }
             }
         }
@@ -92,5 +90,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, binding.drawerBar.drawerLayout)
+    }
+
+    private fun showBottomNavBar() {
+        binding.bottomNavigationView.visibility = View.VISIBLE
+    }
+
+    private fun hideBottomNavBar() {
+        binding.bottomNavigationView.visibility = View.GONE
+    }
+
+    private fun showToolBar() {
+        binding.apply {
+            drawerBar.mainToolbar.toolbarTitle.visibility = View.VISIBLE
+            drawerBar.mainToolbar.profileIcon.visibility = View.VISIBLE
+        }
+    }
+
+    private fun hideToolBar() {
+        binding.apply {
+            drawerBar.mainToolbar.toolbarTitle.visibility = View.GONE
+            drawerBar.mainToolbar.profileIcon.visibility = View.GONE
+        }
     }
 }

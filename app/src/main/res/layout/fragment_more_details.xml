@@ -1,13 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.more_details.MoreDetailsFragment">
+    tools:context=".ui.modules.more_details.MoreDetailsFragment">
+
+    <include
+        android:id="@+id/large_image"
+        layout="@layout/large_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/small_images"
+        android:layout_width="@dimen/zero"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_41"
+        android:foregroundGravity="center"
+        android:layout_marginHorizontal="@dimen/margin_76"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/large_image" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="New balance\nSneakers"
+        android:textColor="@color/black_600"
+        android:textSize="@dimen/text_size_17"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_22"
+        android:layout_marginStart="@dimen/margin_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/small_images" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_22"
+        android:fontFamily="@font/poppins_medium"
+        android:text="$ 22,50"
+        android:textColor="@color/black_600"
+        android:textSize="@dimen/text_size_13"
+        android:textStyle="bold"
+        android:layout_marginEnd="@dimen/margin_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/small_images" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="@dimen/view_size_221"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:text="Features waterproof, fire, air resistant shoes. all changed when the country of fire attacked"
+        android:textColor="@color/gray_550"
+        android:textSize="@dimen/text_size_9"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginStart="@dimen/margin_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="@dimen/view_size_221"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:text="3.9 (4000 reviews)"
+        android:textColor="@color/gray_550"
+        android:textSize="@dimen/text_size_9"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        android:layout_marginTop="@dimen/margin_39"
+        android:layout_marginStart="@dimen/margin_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/description"
+        app:drawableLeftCompat="@drawable/star"
+        android:drawablePadding="@dimen/padding_3"/>
+    <TextView
+        android:id="@+id/colors"
+        android:layout_width="@dimen/view_size_221"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Color:"
+        android:textColor="@color/gray_550"
+        android:textSize="@dimen/text_size_9"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        android:layout_marginTop="@dimen/margin_14"
+        android:layout_marginStart="@dimen/margin_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_colors"
+        android:layout_width="@dimen/zero"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_11"
+        android:layout_marginStart="@dimen/margin_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colors" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

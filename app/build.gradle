@@ -72,4 +72,5 @@ dependencies {
     implementation "com.github.lisawray.groupie:groupie:$groupie_version"
     implementation "com.github.lisawray.groupie:groupie-kotlin-android-extensions:$groupie_version"
     implementation "com.github.lisawray.groupie:groupie-viewbinding:$groupie_version"
+    implementation 'com.google.code.gson:gson:2.10.1'
 }

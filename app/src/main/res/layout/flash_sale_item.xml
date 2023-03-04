@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/view_size_174"
+    android:id="@+id/flash_sale_item"
     android:layout_height="@dimen/view_size_221">
 
     <ImageView
         android:id="@+id/background_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         android:background="@drawable/flash_item_background" />
 
     <TextView

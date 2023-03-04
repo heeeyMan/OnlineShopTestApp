@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/latest_item"
     android:layout_width="@dimen/view_size_114"
     android:layout_height="@dimen/view_size_149">
 
@@ -7,7 +8,8 @@
         android:id="@+id/background_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/latest_item_background" />
+        android:adjustViewBounds="true"
+        android:background="@drawable/item_background_cor_9" />
 
     <TextView
         android:id="@+id/category_name"

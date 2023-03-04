@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testapp.utils.ZERO
 import com.example.testapp.utils.convertDpToInt
 
 class PaddingForLastElement(
@@ -21,7 +22,7 @@ class PaddingForLastElement(
             outRect.bottom =
                 when (parent.getChildAdapterPosition(view)) {
                     adapter.itemCount - 1 -> padding.convertDpToInt(context)
-                    else -> 0
+                    else -> ZERO
                 }
         }
     }

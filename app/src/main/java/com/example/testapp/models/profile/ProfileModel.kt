@@ -2,8 +2,8 @@ package com.example.testapp.models.profile
 
 import android.content.Context
 import com.example.testapp.R
-import com.example.testapp.datamodels.ProfileItem
-import com.example.testapp.datamodels.groupie_models.ProfileDataModel
+import com.example.testapp.datamodels.items.ProfileItem
+import com.example.testapp.ui.adapters.ProfileDataModel
 import com.xwray.groupie.kotlinandroidextensions.Item
 
 class ProfileModel(private val context: Context) : IProfileModel {
