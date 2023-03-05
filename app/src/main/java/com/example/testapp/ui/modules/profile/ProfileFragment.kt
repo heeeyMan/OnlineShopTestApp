@@ -9,16 +9,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.assemblies.profile.ProfileAssembly
 import com.example.testapp.databinding.FragmentProfileBinding
+import com.example.testapp.datamodels.enums.ProfileItemType
+import com.example.testapp.utils.OnProfileItemClickListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), OnProfileItemClickListener {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
     private var recyclerView: RecyclerView? = null
     private var profileAdapter: GroupAdapter<GroupieViewHolder>? = null
-    private val profileViewModel: ProfileViewModel by lazy { ProfileAssembly(requireContext()).build() }
+    private val click: OnProfileItemClickListener = this
+    private val profileViewModel: ProfileViewModel by lazy {
+        ProfileAssembly(
+            requireContext(),
+            click
+        ).build()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +36,10 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         profileAdapter = GroupAdapter()
         recyclerView = binding?.profileList
-        recyclerView?.layoutManager = LinearLayoutManager(context)
-        recyclerView?.adapter = profileAdapter
+        recyclerView?.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = profileAdapter
+        }
         profileViewModel.initProfileList()
         return binding?.root
     }
@@ -51,5 +61,9 @@ class ProfileFragment : Fragment() {
         _binding = null
         recyclerView = null
         profileAdapter = null
+    }
+
+    override fun onProfileItemClick(item: ProfileItemType) {
+        profileViewModel.handleClick(item)
     }
 }

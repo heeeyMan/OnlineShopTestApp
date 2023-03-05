@@ -7,5 +7,5 @@ data class LatestItem(
     val category: Int,
     val itemName: String,
     val price: String,
-    val id: Int = ZERO,
+    val id: Int = ZERO
 )

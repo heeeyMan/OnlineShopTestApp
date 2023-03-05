@@ -25,7 +25,8 @@ class LatestDataModel(
         viewHolder.category_name.text = context.getString(data.category)
         viewHolder.item_name.text = data.itemName
         viewHolder.price.text = context.getString(R.string.price, data.price)
-        viewHolder.latest_item.setOnClickListener{
+
+        viewHolder.latest_item.setOnClickListener {
             click.onItemClick(data.id)
         }
     }

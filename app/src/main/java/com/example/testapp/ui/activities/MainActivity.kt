@@ -13,6 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.testapp.R
 import com.example.testapp.databinding.ActivityMainBinding
+import com.example.testapp.utils.ANNOTATION_KEY
+import com.example.testapp.utils.ANNOTATION_VALUE_DATA
 import com.example.testapp.utils.ZERO
 import com.example.testapp.utils.colorItem
 
@@ -37,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val annotationKey = "font"
-            val annotationValue = "data"
             when (destination.id) {
                 R.id.navigation_home -> {
                     showToolBar()
@@ -51,7 +51,11 @@ class MainActivity : AppCompatActivity() {
                         )
                         val title = getText(R.string.trade_by_data) as SpannedString
                         drawerBar.mainToolbar.toolbarTitle.text =
-                            SpannableString(title).colorItem(title, annotationKey, annotationValue)
+                            SpannableString(title).colorItem(
+                                title,
+                                ANNOTATION_KEY,
+                                ANNOTATION_VALUE_DATA
+                            )
                     }
                 }
 

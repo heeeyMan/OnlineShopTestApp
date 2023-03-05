@@ -20,4 +20,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/corner_user_icon</item>
     </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/blue_600</item>
+    </style>
+
 </resources>

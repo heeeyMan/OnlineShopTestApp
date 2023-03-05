@@ -1,5 +1,6 @@
 package com.example.testapp.datamodels.items
 
+import com.example.testapp.datamodels.enums.ProfileItemType
 import com.example.testapp.utils.ZERO
 
 data class ProfileItem(
@@ -8,4 +9,5 @@ data class ProfileItem(
     val price: String? = null,
     val imageId: Int? = null,
     val id: Int = ZERO,
+    val typeItem: ProfileItemType
 )

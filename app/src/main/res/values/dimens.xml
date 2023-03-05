@@ -132,5 +132,6 @@
     <dimen name="margin_65">65dp</dimen>
     <dimen name="padding_16">16dp</dimen>
     <dimen name="margin_72">72dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
 
 </resources>

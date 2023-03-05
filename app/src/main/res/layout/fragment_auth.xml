@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.modules.auth.AuthFragment">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_121"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/sign_in"
+        android:textColor="@color/black_600"
+        android:textSize="@dimen/text_size_26"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="@dimen/view_size_289"
+        android:layout_height="@dimen/view_size_29"
+        android:layout_marginTop="@dimen/margin_72"
+        android:autofillHints=""
+        android:background="@drawable/auth_field_background"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:hint="@string/first_name"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_580"
+        android:textSize="@dimen/text_size_11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="@dimen/view_size_289"
+        android:layout_height="@dimen/view_size_29"
+        android:layout_marginTop="@dimen/margin_35"
+        android:autofillHints=""
+        android:background="@drawable/auth_field_background"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:hint="@string/last_name"
+        android:inputType="textPassword"
+        android:paddingHorizontal="@dimen/padding_16"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_580"
+        android:textSize="@dimen/text_size_11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="@dimen/view_size_289"
+        android:layout_height="@dimen/view_size_29"
+        android:layout_marginTop="@dimen/margin_35"
+        android:autofillHints=""
+        android:background="@drawable/auth_field_background"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_580"
+        android:textSize="@dimen/text_size_11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name" />
+
+    <TextView
+        android:id="@+id/auth_button"
+        android:layout_width="@dimen/view_size_289"
+        android:layout_height="@dimen/view_size_46"
+        android:layout_marginTop="@dimen/margin_35"
+        android:background="@drawable/auth_button_blocked"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="@string/sign_in"
+        android:textColor="@color/white_500"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_65"
+        android:layout_marginTop="@dimen/margin_15"
+        android:fontFamily="@font/montserrat_light"
+        android:text="@string/have_account"
+        android:textColor="@color/gray_550"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/auth_button" />
+
+    <LinearLayout
+        android:id="@+id/other_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_76"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hint_text">
+
+        <TextView
+            android:id="@+id/sign_in_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_12"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_38"
+            android:text="@string/sign_in_google"
+            android:textColor="@color/black_600"
+            android:textSize="@dimen/text_size_12"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/google" />
+
+        <TextView
+            android:id="@+id/sign_in_apple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_12"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="@string/sign_in_apple"
+            android:textColor="@color/black_600"
+            android:textSize="@dimen/text_size_12"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/apple" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/first_name_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:textColor="@color/red_600"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/last_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+    <TextView
+        android:id="@+id/last_name_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:textColor="@color/red_600"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name" />
+
+    <TextView
+        android:id="@+id/email_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:textColor="@color/red_600"
+        android:textSize="@dimen/text_size_10"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/auth_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/auth_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/red_600"
+        android:textSize="@dimen/text_size_12"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hint_text" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/ProgressBarStyle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

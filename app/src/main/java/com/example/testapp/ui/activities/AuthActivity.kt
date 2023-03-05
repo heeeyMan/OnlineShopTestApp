@@ -2,7 +2,6 @@ package com.example.testapp.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
 import com.example.testapp.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
