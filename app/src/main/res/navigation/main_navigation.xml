@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.testapp.ui.modules.home.HomeFragment"
+        android:name="com.example.onlineshop.ui.modules.home.HomeFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_home">
         <action
@@ -22,13 +22,13 @@
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.example.testapp.ui.modules.more_details.MoreDetailsFragment"
+        android:name="com.example.onlineshop.ui.modules.more_details.MoreDetailsFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_more_details" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.testapp.ui.modules.profile.ProfileFragment"
+        android:name="com.example.onlineshop.ui.modules.profile.ProfileFragment"
         android:label="@string/text_empty"
         tools:layout="@layout/fragment_profile" />
 </navigation>

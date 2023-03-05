@@ -22,7 +22,7 @@ androidExtensions {
 }
 
 android {
-    namespace 'com.example.testapp'
+    namespace 'com.example.onlineshop'
     compileSdk 33
 
     defaultConfig {
