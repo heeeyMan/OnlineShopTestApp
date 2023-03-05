@@ -21,8 +21,9 @@
     <string name="empty_text">Text field is empty</string>
     <string name="email_no_correct">Email is not correct </string>
     <string name="no_user">This user does not exist</string>
-    <string name="database_error">Database error</string>
     <string name="user_already_registered">This user is already registered</string>
+    <string name="database_error">Database error</string>
+    <string name="unknown_error">Unknown error</string>
 
     <!-- Profile -->
     <string name="change_photo">Change photo</string>

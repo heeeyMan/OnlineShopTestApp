@@ -14,8 +14,9 @@ enum class AccountState {
         ACCOUNT_NOT_BUSY, ACCOUNT_EXIST -> R.string.text_empty
     }
 
-    fun isAuthErrorVisible() = when (this) {
+    fun isAuthErrorVisible(): Boolean = when (this) {
         ACCOUNT_NOT_BUSY, ACCOUNT_EXIST -> false
-        USER_ALREADY_REGISTERED, NO_EXIST -> true
+        NO_EXIST -> true
+        USER_ALREADY_REGISTERED -> true
     }
 }

@@ -43,7 +43,8 @@ class AuthFragment : Fragment() {
                 }
                 authButton.apply {
                     setOnClickListener {
-                        if (authViewModel.isClickable())
+                        if (authViewModel.isClickable()) {
+                            showProgressBar()
                             authButtonPressed(
                                 AccountData(
                                     getFirstName(),
@@ -51,6 +52,7 @@ class AuthFragment : Fragment() {
                                     getEmail()
                                 )
                             )
+                        }
                     }
                 }
                 lastName.apply {
@@ -72,16 +74,18 @@ class AuthFragment : Fragment() {
                 binding?.apply {
                     header.text = getString(it.headerId())
                     authButton.text = getString(it.authButtonTextId())
-                    lastName.hint = getString(it.hintId())
                     email.visibility = it.emailVisibility()
                     emailErrorText.visibility = it.emailVisibility()
                     otherSignIn.isVisible = it.isOtherSignInVisible()
-                    lastName.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        ZERO,
-                        ZERO,
-                        it.iconId(),
-                        ZERO
-                    )
+                    lastName.apply {
+                        hint = getString(it.hintId())
+                        setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            ZERO,
+                            ZERO,
+                            it.iconId(),
+                            ZERO
+                        )
+                    }
                     hintText.text =
                         SpannableString(text).colorItem(text, ANNOTATION_KEY, it.annotationValue())
                 }
@@ -105,9 +109,8 @@ class AuthFragment : Fragment() {
                         isVisible = textState.isErrorTextVisible()
                         text = getString(textState.errorTextId())
                     }
-                    field.apply {
-                        background = resources.getDrawable(textState.fieldBackground(), null)
-                    }
+                    field.background =
+                        resources.getDrawable(textState.fieldBackground(), null)
                     authButton.background =
                         resources.getDrawable(authButtonBackgroundId(), null)
                 }
@@ -115,15 +118,20 @@ class AuthFragment : Fragment() {
 
             accountState.observe(viewLifecycleOwner) {
                 binding?.apply {
-                    authErrorText.isVisible = it.isAuthErrorVisible()
-                    authErrorText.text = getString(it.authErrorTextId())
+                    authErrorText.apply {
+                        isVisible = it.isAuthErrorVisible()
+                        text = getString(it.authErrorTextId())
+                    }
                 }
+                hideProgressBar()
             }
 
             dataBaseResponse.observe(viewLifecycleOwner) {
                 binding?.apply {
-                    authErrorText.isVisible = it.isAuthErrorVisible()
-                    authErrorText.text = getString(it.authErrorTextId())
+                    authErrorText.apply {
+                        isVisible = it.isAuthErrorVisible()
+                        text = getString(it.authErrorTextId())
+                    }
                 }
             }
         }
@@ -155,6 +163,14 @@ class AuthFragment : Fragment() {
                 email.text?.replace(ZERO, length, EMPTY_STRING)
             }
         }
+    }
+
+    private fun hideProgressBar() {
+        binding?.progressBar?.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding?.progressBar?.visibility = View.VISIBLE
     }
 
     inner class TextListener(private val fieldType: FieldType) : TextWatcher {

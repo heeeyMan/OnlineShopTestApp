@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,11 +40,12 @@ class HomeFragment : Fragment(), OnItemClickedListener {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeAdapter = GroupAdapter()
         recyclerView = binding?.categoriesList
-        recyclerView?.layoutManager = LinearLayoutManager(context)
-        recyclerView?.addItemDecoration(PaddingForLastElement(BOTTOM_PADDING, requireContext()))
-        recyclerView?.adapter = homeAdapter
+        recyclerView?.apply {
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(PaddingForLastElement(BOTTOM_PADDING, requireContext()))
+            adapter = homeAdapter
+        }
         homeViewModel.initProfileList()
-
         return binding?.root
     }
 
@@ -54,6 +56,12 @@ class HomeFragment : Fragment(), OnItemClickedListener {
                 recyclerView?.adapter = homeAdapter?.apply {
                     clear()
                     addAll(it)
+                }
+            }
+            requestState.observe(viewLifecycleOwner) {
+                binding?.errorText?.apply {
+                    isVisible = it.errorTextVisible()
+                    text = getString(it.messageErrorText())
                 }
             }
         }

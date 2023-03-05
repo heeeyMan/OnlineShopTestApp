@@ -3,8 +3,8 @@ package com.example.onlineshop.datamodels.items
 import com.example.onlineshop.utils.ZERO
 
 data class FlashItem(
-    val imageId: Int,
-    val category: Int,
+    val imageUrl: String,
+    val category: String,
     val name: String,
     val price: String,
     val discount: String,

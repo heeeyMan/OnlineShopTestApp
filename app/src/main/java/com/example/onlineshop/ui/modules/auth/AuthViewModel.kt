@@ -79,7 +79,6 @@ class AuthViewModel(
                 router.openMainActivity()
             }
             accountState.postValue(state)
-            dataBaseResponse.postValue(DataBaseResponse.CORRECT)
         } catch (_: Throwable) {
             dataBaseResponse.postValue(DataBaseResponse.DATA_BASE_ERROR)
         }
@@ -96,7 +95,6 @@ class AuthViewModel(
                     }
                 }
                 accountState.postValue(state)
-                dataBaseResponse.postValue(DataBaseResponse.CORRECT)
             } catch (_: Throwable) {
                 dataBaseResponse.postValue(DataBaseResponse.DATA_BASE_ERROR)
             }
