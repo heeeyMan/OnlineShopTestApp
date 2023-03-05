@@ -27,7 +27,7 @@ class FlashDataModel(
             )
         )
         viewHolder.category_name.text = context.getString(data.category)
-        viewHolder.item_name.text = data.itemName
+        viewHolder.item_name.text = data.name
         viewHolder.price.text = context.getString(R.string.price, data.price)
         viewHolder.discount.text = context.getString(R.string.discount, data.discount)
         viewHolder.flash_sale_item.setOnClickListener{

@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.testapp.R
+import com.example.testapp.database.Dependencies
 import com.example.testapp.databinding.ActivityMainBinding
 import com.example.testapp.utils.ANNOTATION_KEY
 import com.example.testapp.utils.ANNOTATION_VALUE_DATA
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Dependencies.init(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
