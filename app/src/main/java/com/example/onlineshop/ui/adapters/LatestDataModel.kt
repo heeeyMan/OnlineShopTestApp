@@ -19,7 +19,7 @@ class LatestDataModel(
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
 
         Picasso.get().load(data.imageUrl).into(viewHolder.background_img)
-        viewHolder.category_name.text = context.getString(data.category)
+        viewHolder.category_name.text = data.category
         viewHolder.item_name.text = data.name
         viewHolder.price.text = context.getString(R.string.price, data.price)
 

@@ -7,6 +7,7 @@ import com.xwray.groupie.kotlinandroidextensions.Item
 
 interface IHomeModel {
     suspend fun getLatestData(): LatestListData
-    suspend fun getFlashSale(): FlashSaleListData
+    suspend fun getFlashSaleData(): FlashSaleListData
     fun getTradeData(listItems: ListsItems): List<Item>
+    fun isConnection(): Boolean
 }

@@ -4,12 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onlineshop.datamodels.enums.RequestState
+import com.example.onlineshop.datamodels.items.ListsItems
 import com.example.onlineshop.models.home.IHomeModel
 import com.example.onlineshop.routers.home.IHomeRouter
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.HttpException
+import java.net.ConnectException
 
 class HomeViewModel(
     private val model: IHomeModel,
@@ -21,9 +24,32 @@ class HomeViewModel(
         viewModelScope.launch {
             try {
                 withContext(Dispatchers.IO) {
-                    model.getFlashSale()
+                    model.apply {
+                        if(!isConnection()) throw ConnectException()
+                        val latest = getLatestData().latest
+                        val flashSale = getFlashSaleData().flashSale
+                        withContext(Dispatchers.Main) {
+                            tradeData.postValue(
+                                getTradeData(
+                                    ListsItems(
+                                        latestList = latest,
+                                        flashSaleList = flashSale
+                                    )
+                                )
+                            )
+                        }
+                    }
                 }
                 requestState.postValue(RequestState.CORRECT)
+            } catch (_: ConnectException) {
+                requestState.postValue(RequestState.NO_INTERNET)
+            } catch (ex: HttpException) {
+                when (ex.code()) {
+                    400 -> requestState.postValue(RequestState.CLIENT_ERROR)
+                    404 -> requestState.postValue(RequestState.NOT_FOUND)
+                    in 500..511 -> requestState.postValue(RequestState.SERVER_ERROR)
+                    else -> requestState.postValue(RequestState.UNKNOWN_ERROR)
+                }
             } catch (_: Throwable) {
                 requestState.postValue(RequestState.UNKNOWN_ERROR)
             }

@@ -4,7 +4,7 @@ import com.example.onlineshop.utils.ZERO
 
 data class LatestItem(
     val imageUrl: String,
-    val category: Int,
+    val category: String,
     val name: String,
     val price: String,
     val id: Int = ZERO

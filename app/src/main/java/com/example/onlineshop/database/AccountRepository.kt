@@ -22,7 +22,7 @@ class AccountRepository(private val accountDao: AccountDao) {
 
     suspend fun isAccountExist(account: AccountData): Boolean {
         return withContext(Dispatchers.IO) {
-            accountDao.isAccountExist(account.firstName, account.lastName)
+            accountDao.isAccountExist(account.firstName)
         }
     }
 

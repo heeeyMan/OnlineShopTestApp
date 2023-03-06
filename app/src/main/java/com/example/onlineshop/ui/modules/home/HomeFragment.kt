@@ -45,7 +45,15 @@ class HomeFragment : Fragment(), OnItemClickedListener {
             addItemDecoration(PaddingForLastElement(BOTTOM_PADDING, requireContext()))
             adapter = homeAdapter
         }
-        homeViewModel.initProfileList()
+
+        homeViewModel.apply {
+            initProfileList()
+            binding?.tryAgain?.setOnClickListener{
+                showProgressBar()
+                initProfileList()
+            }
+        }
+        showProgressBar()
         return binding?.root
     }
 
@@ -57,14 +65,28 @@ class HomeFragment : Fragment(), OnItemClickedListener {
                     clear()
                     addAll(it)
                 }
+                hideProgressBar()
             }
             requestState.observe(viewLifecycleOwner) {
-                binding?.errorText?.apply {
-                    isVisible = it.errorTextVisible()
-                    text = getString(it.messageErrorText())
+                binding?.apply {
+                    errorText.apply {
+                        isVisible = it.errorTextVisible()
+                        text = getString(it.messageErrorText())
+                    }
+                    tryAgain.isVisible = it.tryAgainButtonVisible()
                 }
+                hideProgressBar()
             }
+
         }
+    }
+
+    private fun hideProgressBar() {
+        binding?.progressBar?.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding?.progressBar?.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {

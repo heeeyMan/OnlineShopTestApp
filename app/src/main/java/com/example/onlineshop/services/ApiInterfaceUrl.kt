@@ -6,9 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiInterfaceUrl {
-    @GET("/{request}")
+    @GET("v3/{request}")
     suspend fun getLatestData(@Path("request") request: String): LatestListData
 
-    @GET("/{request}")
+    @GET("v3/{request}")
     suspend fun getFlashSaleData(@Path("request") request: String): FlashSaleListData
 }

@@ -1,4 +1,4 @@
-package  com.example.infobin.services
+package  com.example.onlineshop.services
 
 import android.content.Context
 import android.net.ConnectivityManager

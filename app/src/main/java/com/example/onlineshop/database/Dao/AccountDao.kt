@@ -20,9 +20,9 @@ interface AccountDao {
 
     @Query(
         "SELECT EXISTS (SELECT 1 FROM accounts " +
-                "WHERE firstName IN (:firstName) AND lastName IN (:lastName) )"
+                "WHERE firstName IN (:firstName) )"
     )
     fun isAccountExist(
-        firstName: String, lastName: String
+        firstName: String
     ): Boolean
 }

@@ -8,15 +8,21 @@ import com.example.onlineshop.R
 import com.example.onlineshop.datamodels.items.*
 import com.example.onlineshop.services.ApiInterfaceUrl
 import com.example.onlineshop.services.DataClient
+import com.example.onlineshop.services.INetworkService
 import com.example.onlineshop.ui.adapters.*
 import com.example.onlineshop.utils.*
 import com.xwray.groupie.kotlinandroidextensions.Item
 
 class HomeModel(
     private val context: Context,
-    private val click: OnItemClickedListener
+    private val click: OnItemClickedListener,
+    private val networkService: INetworkService
 ) : IHomeModel {
-    private val randomId = (0..100000).random()
+    private val randomId = (ZERO..RANGE).random()
+
+    override fun isConnection(): Boolean {
+        return networkService.checkNetworkConnection()
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun getLatestData(): LatestListData {
@@ -26,7 +32,7 @@ class HomeModel(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override suspend fun getFlashSale(): FlashSaleListData {
+    override suspend fun getFlashSaleData(): FlashSaleListData {
         val retrofit = DataClient.getInstance()
         val apiInterface = retrofit.create(ApiInterfaceUrl::class.java)
         return apiInterface.getFlashSaleData(FLASH_SALE_URL)
@@ -41,14 +47,14 @@ class HomeModel(
             ListChapters(context, getChapterItems()),
             ListCategories(context, R.string.latest, R.string.view_all, listLatest),
             ListCategories(context, R.string.flash_sale, R.string.view_all, listFlash),
-            ListCategories(context, R.string.flash_sale, R.string.view_all, listFlash)
+            ListCategories(context, R.string.old_sale, R.string.view_all, listFlash)
         )
     }
 
-    private fun flashSaleToItem(items: ArrayList<FlashSaleData>): List<FlashItem> {
+    private fun flashSaleToItem(items: List<FlashSaleData>): List<FlashItem> {
         return items.map {
             FlashItem(
-                imageUrl = it.imageUrl ?: "",
+                imageUrl = it.imageUrl ?: EMPTY_STRING,
                 category = it.category ?: EMPTY_STRING,
                 name = it.name ?: EMPTY_STRING,
                 price = (it.price ?: -0.0).toString(),
@@ -58,12 +64,12 @@ class HomeModel(
         }
     }
 
-    private fun latestToItem(items: ArrayList<LatestData>): List<LatestItem> {
+    private fun latestToItem(items: List<LatestData>): List<LatestItem> {
         return items.map {
             LatestItem(
-                imageUrl = it.imageUrl ?: "",
-                category = it.category?.toInt() ?: 0,
-                name = it.name ?: "",
+                imageUrl = it.imageUrl ?: EMPTY_STRING,
+                category = it.category ?: EMPTY_STRING,
+                name = it.name ?: EMPTY_STRING,
                 price = (it.price ?: -0.0).toString(),
                 id = randomId
             )
@@ -71,7 +77,7 @@ class HomeModel(
     }
 
 
-    private fun getLatestItems(items: ArrayList<LatestData>): List<Item> {
+    private fun getLatestItems(items: List<LatestData>): List<Item> {
         return latestToItem(items).map {
             LatestDataModel(
                 context,
@@ -81,7 +87,7 @@ class HomeModel(
         }
     }
 
-    private fun getFlashSaleItems(items: ArrayList<FlashSaleData>): List<Item> {
+    private fun getFlashSaleItems(items: List<FlashSaleData>): List<Item> {
         return flashSaleToItem(items).map {
             FlashSaleDataModel(
                 context,
@@ -92,17 +98,12 @@ class HomeModel(
     }
 
     private fun getChapterItems(): List<Item> {
-        val phones = ChapterItem(R.drawable.phones, R.string.phones, randomId)
-        val headphones = ChapterItem(R.drawable.headphones, R.string.headphones, randomId)
-        val games = ChapterItem(R.drawable.games, R.string.games, THREE)
-        val furniture = ChapterItem(R.drawable.furniture, R.string.furniture, randomId)
-        val kids = ChapterItem(R.drawable.kids, R.string.kids, randomId)
         return listOf(
-            ChapterDataModel(context, phones),
-            ChapterDataModel(context, headphones),
-            ChapterDataModel(context, games),
-            ChapterDataModel(context, furniture),
-            ChapterDataModel(context, kids)
+            ChapterDataModel(context, ChapterItem(R.drawable.phones, R.string.phones, randomId)),
+            ChapterDataModel(context, ChapterItem(R.drawable.headphones, R.string.headphones, randomId)),
+            ChapterDataModel(context, ChapterItem(R.drawable.games, R.string.games, randomId)),
+            ChapterDataModel(context, ChapterItem(R.drawable.furniture, R.string.furniture, randomId)),
+            ChapterDataModel(context, ChapterItem(R.drawable.kids, R.string.kids, randomId))
         )
     }
 }
