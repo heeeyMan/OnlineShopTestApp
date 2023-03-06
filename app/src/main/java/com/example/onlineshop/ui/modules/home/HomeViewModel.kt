@@ -25,7 +25,7 @@ class HomeViewModel(
             try {
                 withContext(Dispatchers.IO) {
                     model.apply {
-                        if(!isConnection()) throw ConnectException()
+                        if (!isConnection()) throw ConnectException()
                         val latest = getLatestData().latest
                         val flashSale = getFlashSaleData().flashSale
                         withContext(Dispatchers.Main) {

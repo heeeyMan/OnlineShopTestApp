@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:paddingHorizontal="@dimen/padding_1"
             android:paddingVertical="@dimen/padding_1"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/avatar"
             app:shapeAppearanceOverlay="@style/IconProfileStyle"
             app:strokeColor="@color/gray_825"

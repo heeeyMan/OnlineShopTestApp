@@ -48,7 +48,7 @@ class HomeFragment : Fragment(), OnItemClickedListener {
 
         homeViewModel.apply {
             initProfileList()
-            binding?.tryAgain?.setOnClickListener{
+            binding?.tryAgain?.setOnClickListener {
                 showProgressBar()
                 initProfileList()
             }
