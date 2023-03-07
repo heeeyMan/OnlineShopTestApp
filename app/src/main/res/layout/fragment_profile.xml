@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_color"
+    android:animateLayoutChanges="true"
     tools:context=".ui.modules.profile.ProfileFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -14,6 +15,7 @@
         android:layout_marginTop="@dimen/margin_19"
         android:paddingHorizontal="@dimen/padding_1"
         android:paddingVertical="@dimen/padding_1"
+        android:scaleType="fitXY"
         android:src="@drawable/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,36 +50,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/change_photo" />
 
-    <FrameLayout
-        android:id="@+id/upload_item_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_36"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/user_name">
-
         <TextView
-            android:id="@+id/upload_item_text"
+            android:id="@+id/upload_item_button"
             android:layout_width="@dimen/view_size_290"
             android:layout_height="@dimen/view_size_40"
+            android:layout_marginTop="@dimen/margin_36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/user_name"
             android:background="@drawable/auth_button_state"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
             android:text="@string/upload_item"
             android:textColor="@color/white_500"
             android:textSize="@dimen/text_size_15"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/upload_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|start"
+            android:textStyle="bold"
+            android:paddingEnd="@dimen/padding_56"
             android:paddingStart="@dimen/padding_56"
-            android:src="@drawable/upload"
-            tools:ignore="RtlSymmetry" />
-    </FrameLayout>
+            app:drawableStartCompat="@drawable/upload" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/profile_list"

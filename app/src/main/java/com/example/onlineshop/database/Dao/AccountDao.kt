@@ -25,4 +25,10 @@ interface AccountDao {
     fun isAccountExist(
         firstName: String
     ): Boolean
+
+    @Query("SELECT firstName FROM accounts")
+    fun getFirstName(): String
+
+    @Query("SELECT lastName FROM accounts")
+    fun getLastName(): String
 }

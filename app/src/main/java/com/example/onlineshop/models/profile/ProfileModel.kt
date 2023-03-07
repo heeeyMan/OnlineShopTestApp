@@ -2,6 +2,7 @@ package com.example.onlineshop.models.profile
 
 import android.content.Context
 import com.example.onlineshop.R
+import com.example.onlineshop.database.Dependencies.accountRepository
 import com.example.onlineshop.datamodels.enums.ProfileItemType
 import com.example.onlineshop.datamodels.items.ProfileItem
 import com.example.onlineshop.ui.adapters.ProfileDataModel
@@ -12,6 +13,12 @@ class ProfileModel(
     private val context: Context,
     private val click: OnProfileItemClickListener
 ) : IProfileModel {
+
+    override suspend fun getFullName(): String {
+        val fullName = accountRepository.getFullName()
+        return "${fullName.first} ${fullName.second}"
+    }
+
     override fun getProfileList(): List<Item> {
         val tradeStore = ProfileDataModel(
             context,

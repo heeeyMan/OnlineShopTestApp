@@ -26,4 +26,10 @@ class AccountRepository(private val accountDao: AccountDao) {
         }
     }
 
+    suspend fun getFullName(): Pair<String, String> {
+        return withContext(Dispatchers.IO) {
+            Pair(accountDao.getFirstName(), accountDao.getLastName())
+        }
+    }
+
 }

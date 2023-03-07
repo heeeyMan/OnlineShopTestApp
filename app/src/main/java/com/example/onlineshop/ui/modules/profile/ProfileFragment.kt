@@ -1,6 +1,10 @@
 package com.example.onlineshop.ui.modules.profile
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +17,7 @@ import com.example.onlineshop.datamodels.enums.ProfileItemType
 import com.example.onlineshop.utils.OnProfileItemClickListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+
 
 class ProfileFragment : Fragment(), OnProfileItemClickListener {
 
@@ -27,6 +32,8 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
             click
         ).build()
     }
+    private val requestCode = 100
+    private var imageUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,8 +48,22 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
             adapter = profileAdapter
         }
         profileViewModel.initProfileList()
+        binding?.uploadItemButton?.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(gallery, requestCode)
+        }
         return binding?.root
     }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == this.requestCode) {
+            imageUri = data?.data
+            binding?.icon?.setImageURI(imageUri)
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -52,6 +73,9 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
                     clear()
                     addAll(it)
                 }
+            }
+            fullName.observe(viewLifecycleOwner) {
+                binding?.userName?.text = it
             }
         }
     }
