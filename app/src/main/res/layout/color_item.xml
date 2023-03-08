@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ImageView
+<com.google.android.material.imageview.ShapeableImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/color"
+    app:shapeAppearanceOverlay="@style/LatestIconStyle"
     android:layout_width="@dimen/view_size_34"
-    android:layout_height="@dimen/view_size_26" />
+    android:layout_height="@dimen/view_size_26"
+    android:background="@drawable/button_bottom_sheet_passive"
+    android:scaleType="fitXY" />

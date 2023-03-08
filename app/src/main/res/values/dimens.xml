@@ -69,6 +69,7 @@
     <dimen name="margin_28">28dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
     <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_37">37dp</dimen>
     <dimen name="margin_38">38dp</dimen>
@@ -79,6 +80,9 @@
     <dimen name="margin_46">46dp</dimen>
     <dimen name="margin_47">47dp</dimen>
     <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_65">65dp</dimen>
+    <dimen name="margin_72">72dp</dimen>
     <dimen name="margin_76">76dp</dimen>
     <dimen name="margin_91">91dp</dimen>
     <dimen name="margin_83">83dp</dimen>
@@ -95,7 +99,9 @@
     <dimen name="padding_8">8dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="padding_11">11dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
     <dimen name="padding_15">15dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
     <dimen name="padding_56">56dp</dimen>
 
     <!-- View sizes -->
@@ -124,14 +130,10 @@
     <dimen name="view_size_328">328dp</dimen>
     <dimen name="view_size_34">34dp</dimen>
     <dimen name="view_size_26">26dp</dimen>
-    <dimen name="view_size_289">289dp</dimen>
+    <dimen name="view_size_38">38dp</dimen>
     <dimen name="view_size_29">29dp</dimen>
-    <dimen name="margin_60">60dp</dimen>
-    <dimen name="margin_35">35dp</dimen>
     <dimen name="view_size_46">46dp</dimen>
-    <dimen name="margin_65">65dp</dimen>
-    <dimen name="padding_16">16dp</dimen>
-    <dimen name="margin_72">72dp</dimen>
-    <dimen name="padding_12">12dp</dimen>
-
+    <dimen name="view_size_66">66dp</dimen>
+    <dimen name="view_size_147">147dp</dimen>
+    <dimen name="view_size_289">289dp</dimen>
 </resources>

@@ -13,7 +13,6 @@ class ProfileModel(
     private val context: Context,
     private val click: OnProfileItemClickListener
 ) : IProfileModel {
-
     override suspend fun getFullName(): String {
         val fullName = accountRepository.getFullName()
         return "${fullName.first} ${fullName.second}"

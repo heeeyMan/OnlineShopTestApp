@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_more -> {
-                    hideBottomNavBar()
                     hideToolBar()
                 }
             }

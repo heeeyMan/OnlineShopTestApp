@@ -33,7 +33,13 @@ class ListCategories(
         recyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = GroupAdapter<GroupieViewHolder>().apply { addAll(items) }
-        recyclerView.addItemDecoration(PaddingBetweenItems(paddingEnd, CATEGORIES_MARGIN_VERTICAL, context))
+        recyclerView.addItemDecoration(
+            PaddingBetweenItems(
+                paddingEnd,
+                CATEGORIES_MARGIN_VERTICAL,
+                context
+            )
+        )
     }
 
     override fun getLayout() = R.layout.list_categories

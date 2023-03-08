@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlineshop.assemblies.home.HomeAssembly
 import com.example.onlineshop.databinding.FragmentHomeBinding
+import com.example.onlineshop.ui.adapters.ColorAdapter
 import com.example.onlineshop.ui.item_decorations.PaddingForLastElement
 import com.example.onlineshop.utils.BOTTOM_PADDING
 import com.example.onlineshop.utils.OnItemClickedListener

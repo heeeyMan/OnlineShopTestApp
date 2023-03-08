@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.imageview.ShapeableImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/image"
+    android:layout_width="@dimen/view_size_66"
+    android:layout_height="@dimen/view_size_38"
+    android:background="@drawable/passive_mini_image_background"
+    android:scaleType="fitXY"
+    app:shapeAppearanceOverlay="@style/SmallIconStyle" />

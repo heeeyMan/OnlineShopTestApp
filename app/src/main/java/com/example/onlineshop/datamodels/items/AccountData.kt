@@ -14,5 +14,5 @@ fun AccountData.toAccountEntity() = AccountEntity(
     id = ZERO.toLong(),
     firstName = firstName,
     lastName = lastName,
-    email = email
+    email = email,
 )

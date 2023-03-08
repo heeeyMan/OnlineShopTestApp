@@ -10,7 +10,7 @@ data class AccountEntity(
     @PrimaryKey(autoGenerate = true) val id: Long,
     @ColumnInfo(name = "firstName") val firstName: String,
     @ColumnInfo(name = "lastName") val lastName: String,
-    @ColumnInfo(name = "email") val email: String
+    @ColumnInfo(name = "email") val email: String,
 )
 
 fun AccountEntity.toAccountData() = AccountData(

@@ -26,6 +26,18 @@
         <item name="cornerSize">9%</item>
     </style>
 
+    <style name="ColorIconStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">9%</item>
+        <item name="strokeColor">@color/gray_800</item>
+        <item name="strokeWidth">@dimen/stroke_width</item>
+    </style>
+
+    <style name="SmallIconStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">6%</item>
+    </style>
+
     <style name="FlashSaleIconStyle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">11%</item>
@@ -33,6 +45,12 @@
 
     <style name="ProgressBarStyle">
         <item name="colorAccent">@color/blue_600</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:backgroundDimAmount">@integer/zero</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
     </style>
 
 </resources>

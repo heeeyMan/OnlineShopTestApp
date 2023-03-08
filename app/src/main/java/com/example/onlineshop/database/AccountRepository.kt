@@ -31,5 +31,4 @@ class AccountRepository(private val accountDao: AccountDao) {
             Pair(accountDao.getFirstName(), accountDao.getLastName())
         }
     }
-
 }
