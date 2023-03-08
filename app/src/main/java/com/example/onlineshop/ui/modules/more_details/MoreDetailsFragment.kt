@@ -1,5 +1,7 @@
 package com.example.onlineshop.ui.modules.more_details
 
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,13 +13,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.onlineshop.R
 import com.example.onlineshop.assemblies.more_details.MoreDetailsAssembly
 import com.example.onlineshop.databinding.FragmentMoreDetailsBinding
+import com.example.onlineshop.datamodels.enums.BottomBarButtonType
 import com.example.onlineshop.ui.adapters.ColorAdapter
 import com.example.onlineshop.ui.adapters.ImageAdapter
 import com.example.onlineshop.ui.item_decorations.PaddingBetweenItems
 import com.example.onlineshop.utils.*
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.squareup.picasso.Picasso
 
-class MoreDetailsFragment : Fragment() {
+class MoreDetailsFragment : Fragment(), OnSmallImageClickedListener {
 
     private var _binding: FragmentMoreDetailsBinding? = null
     private val binding get() = _binding
@@ -26,10 +30,10 @@ class MoreDetailsFragment : Fragment() {
             findNavController()
         ).build()
     }
-    private var colorRecyclerView: RecyclerView? =null
-    private var imageRecyclerView: RecyclerView? =null
+    private var colorRecyclerView: RecyclerView? = null
+    private var imageRecyclerView: RecyclerView? = null
     private val colorAdapter = ColorAdapter()
-    private val imageAdapter = ImageAdapter()
+    private val imageAdapter = ImageAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +43,17 @@ class MoreDetailsFragment : Fragment() {
         binding?.apply {
             colorRecyclerView = listColors
             imageRecyclerView = smallImages
+            bottomSheet.addCart.setOnClickListener {
+                moreDetailsViewModel.bottomBarClickHandle(BottomBarButtonType.ADD_CARD)
+            }
+
+            bottomSheet.positiveButton.setOnClickListener {
+                moreDetailsViewModel.bottomBarClickHandle(BottomBarButtonType.POSITIVE)
+            }
+
+            bottomSheet.negativeButton.setOnClickListener {
+                moreDetailsViewModel.bottomBarClickHandle(BottomBarButtonType.NEGATIVE)
+            }
         }
         colorRecyclerView?.apply {
             layoutManager =
@@ -90,6 +105,18 @@ class MoreDetailsFragment : Fragment() {
                 }
 
             }
+            price.observe(viewLifecycleOwner) {
+                binding?.price?.text = getString(R.string.price, it)
+            }
+            largeImage.observe(viewLifecycleOwner) {
+                if (it != null) {
+                    //binding?.largeImage?.generalImg?.setImageDrawable(BitmapDrawable(resources, it))
+                }
+            }
         }
+    }
+
+    override fun onItemClick(imageUri: Uri) {
+        moreDetailsViewModel.updateImage(imageUri)
     }
 }

@@ -1,14 +1,18 @@
 package com.example.onlineshop.ui.adapters
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlineshop.databinding.SmallImageItemBinding
+import com.example.onlineshop.utils.OnSmallImageClickedListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.latest_item.*
 
-class ImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ImageAdapter(
+    private val click: OnSmallImageClickedListener
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var listColors: ArrayList<String> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView = SmallImageItemBinding.inflate(
@@ -34,7 +38,14 @@ class ImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(imageUri: String) {
-            Picasso.get().load(imageUri).into(binding.image)
+            val uri = Uri.parse(imageUri)
+            binding.image.apply {
+                Picasso.get().load(imageUri).into(this)
+                setOnClickListener {
+                    click.onItemClick(uri)
+                }
+            }
+
         }
     }
 

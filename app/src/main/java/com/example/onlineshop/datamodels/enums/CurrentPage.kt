@@ -31,7 +31,7 @@ enum class CurrentPage {
         SIGN_IN -> View.VISIBLE
     }
 
-    fun secondFieldType() = when (this) {
+    fun inputType() = when (this) {
         LOGIN -> InputType.TYPE_CLASS_TEXT + InputType.TYPE_TEXT_VARIATION_PASSWORD
         SIGN_IN -> InputType.TYPE_CLASS_TEXT
     }

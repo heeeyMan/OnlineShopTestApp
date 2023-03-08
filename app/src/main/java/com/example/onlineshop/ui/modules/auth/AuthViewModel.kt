@@ -19,7 +19,7 @@ class AuthViewModel(
     private val model: IAuthModel,
     private val router: IAuthRouter
 ) : ViewModel() {
-    val currentScreen = MutableLiveData<CurrentPage>()
+    val currentPage = MutableLiveData<CurrentPage>()
     val accountState = MutableLiveData<AccountState>()
     val dataBaseResponse = MutableLiveData<DataBaseResponse>()
     val textState = MutableLiveData<Pair<InputTextState, FieldType>>()
@@ -30,7 +30,7 @@ class AuthViewModel(
     private var emailState = InputTextState.EMPTY
 
     fun initScreen() {
-        currentScreen.postValue(currentScreenState)
+        currentPage.postValue(currentScreenState)
     }
 
     fun changeCurrentScreen() {

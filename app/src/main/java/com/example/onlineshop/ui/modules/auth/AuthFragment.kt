@@ -55,11 +55,6 @@ class AuthFragment : Fragment() {
                         }
                     }
                 }
-                lastName.apply {
-                    setOnClickListener {
-                        inputType = getCurrentScreenState().secondFieldType()
-                    }
-                }
             }
         }
         return binding?.root
@@ -69,7 +64,7 @@ class AuthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         authViewModel.apply {
-            currentScreen.observe(viewLifecycleOwner) {
+            currentPage.observe(viewLifecycleOwner) {
                 val text = getText(it.hintTextId()) as SpannedString
                 binding?.apply {
                     header.text = getString(it.headerId())
@@ -85,6 +80,7 @@ class AuthFragment : Fragment() {
                             it.iconId(),
                             ZERO
                         )
+                        inputType = it.inputType()
                     }
                     hintText.text =
                         SpannableString(text).colorItem(text, ANNOTATION_KEY, it.annotationValue())
@@ -181,7 +177,8 @@ class AuthFragment : Fragment() {
         }
 
         override fun afterTextChanged(edit: Editable?) {
-            authViewModel.handleEmailText(edit.toString(), fieldType)
+            if(!edit.isNullOrEmpty())
+                authViewModel.handleEmailText(edit.toString(), fieldType)
         }
     }
 
