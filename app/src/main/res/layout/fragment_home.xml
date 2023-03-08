@@ -1,56 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_color"
     android:animateLayoutChanges="true"
+    android:background="@color/main_color"
     tools:context=".ui.modules.home.HomeFragment">
 
-    <FrameLayout
-        android:id="@+id/search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <EditText
+        android:id="@+id/search_text"
+        android:layout_width="@dimen/view_size_262"
+        android:layout_height="@dimen/view_size_24"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/search_text"
-            android:layout_width="@dimen/view_size_262"
-            android:layout_height="@dimen/view_size_24"
-            android:autofillHints=""
-            android:background="@drawable/search_back"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center"
-            android:hint="@string/what_you_looking"
-            android:inputType="text"
-            android:selectAllOnFocus="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray_810"
-            android:textSize="@dimen/text_size_9" />
-
-        <ImageView
-            android:id="@+id/search_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="@dimen/margin_19"
-            android:src="@drawable/search" />
-    </FrameLayout>
+        android:autofillHints=""
+        android:background="@drawable/search_back"
+        android:drawableEnd="@drawable/search"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:hint="@string/what_you_looking"
+        android:inputType="text"
+        android:paddingEnd="@dimen/margin_19"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_810"
+        android:textSize="@dimen/text_size_9"
+        tools:ignore="RtlSymmetry" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_50"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search" />
+        android:layout_marginTop="@dimen/margin_50" />
 
     <TextView
         android:id="@+id/error_text"

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.navigation.NavController
 import com.example.onlineshop.models.home.HomeModel
 import com.example.onlineshop.routers.home.HomeRouter
-import com.example.onlineshop.services.NetworkService
+import com.example.onlineshop.services.network.NetworkService
 import com.example.onlineshop.ui.modules.home.HomeViewModel
 import com.example.onlineshop.utils.OnItemClickedListener
 

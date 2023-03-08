@@ -6,10 +6,11 @@
 
     <ImageSwitcher
         android:id="@+id/general_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/view_size_328"
+        android:layout_height="@dimen/view_size_279"
         android:adjustViewBounds="true"
-        android:background="@drawable/item_background_cor_9"/>
+        android:background="@drawable/item_background_cor_9" >
+    </ImageSwitcher>
 
     <include
         android:id="@+id/like_element"

@@ -8,7 +8,7 @@ import com.example.onlineshop.R
 import com.example.onlineshop.datamodels.items.*
 import com.example.onlineshop.services.ApiInterfaceUrl
 import com.example.onlineshop.services.DataClient
-import com.example.onlineshop.services.INetworkService
+import com.example.onlineshop.services.network.INetworkService
 import com.example.onlineshop.ui.adapters.*
 import com.example.onlineshop.utils.*
 import com.xwray.groupie.kotlinandroidextensions.Item
