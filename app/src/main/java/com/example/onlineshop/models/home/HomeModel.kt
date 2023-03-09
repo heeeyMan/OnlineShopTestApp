@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.onlineshop.R
+import com.example.onlineshop.datamodels.data.*
 import com.example.onlineshop.datamodels.items.*
 import com.example.onlineshop.services.ApiInterfaceUrl
 import com.example.onlineshop.services.DataClient
@@ -20,9 +21,7 @@ class HomeModel(
 ) : IHomeModel {
     private val randomId = (ZERO..RANGE).random()
 
-    override fun isConnection(): Boolean {
-        return networkService.checkNetworkConnection()
-    }
+    override fun isConnection() = networkService.checkNetworkConnection()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun getLatestData(): LatestListData {
@@ -36,6 +35,19 @@ class HomeModel(
         val retrofit = DataClient.getInstance()
         val apiInterface = retrofit.create(ApiInterfaceUrl::class.java)
         return apiInterface.getFlashSaleData(FLASH_SALE_URL)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private suspend fun getHintData(): HintData {
+        val retrofit = DataClient.getInstance()
+        val apiInterface = retrofit.create(ApiInterfaceUrl::class.java)
+        return apiInterface.getHintData(HINT_URL)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override suspend fun getHintList(query: String): List<String> {
+        val hintList = getHintData().words
+        return hintList.filter { it.lowercase().contains(query.lowercase()) }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -100,9 +112,15 @@ class HomeModel(
     private fun getChapterItems(): List<Item> {
         return listOf(
             ChapterDataModel(context, ChapterItem(R.drawable.phones, R.string.phones, randomId)),
-            ChapterDataModel(context, ChapterItem(R.drawable.headphones, R.string.headphones, randomId)),
+            ChapterDataModel(
+                context,
+                ChapterItem(R.drawable.headphones, R.string.headphones, randomId)
+            ),
             ChapterDataModel(context, ChapterItem(R.drawable.games, R.string.games, randomId)),
-            ChapterDataModel(context, ChapterItem(R.drawable.furniture, R.string.furniture, randomId)),
+            ChapterDataModel(
+                context,
+                ChapterItem(R.drawable.furniture, R.string.furniture, randomId)
+            ),
             ChapterDataModel(context, ChapterItem(R.drawable.kids, R.string.kids, randomId))
         )
     }

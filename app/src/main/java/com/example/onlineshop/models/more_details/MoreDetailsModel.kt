@@ -2,7 +2,7 @@ package com.example.onlineshop.models.more_details
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.example.onlineshop.datamodels.items.MoreDetailsData
+import com.example.onlineshop.datamodels.data.MoreDetailsData
 import com.example.onlineshop.datamodels.items.MoreDetailsItem
 import com.example.onlineshop.services.ApiInterfaceUrl
 import com.example.onlineshop.services.DataClient
@@ -16,7 +16,7 @@ class MoreDetailsModel : IMoreDetailsModel {
         val data = getMoreDetailsData()
         return MoreDetailsItem(
             name = data.name ?: EMPTY_STRING,
-            description = data.description?: EMPTY_STRING,
+            description = data.description ?: EMPTY_STRING,
             rating = data.rating.toString(),
             numberOfReviews = data.numberOfReviews.toString(),
             price = data.price.toString(),
@@ -24,6 +24,7 @@ class MoreDetailsModel : IMoreDetailsModel {
             imageUrls = data.imageUrls
         )
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun getMoreDetailsData(): MoreDetailsData {
         val retrofit = DataClient.getInstance()

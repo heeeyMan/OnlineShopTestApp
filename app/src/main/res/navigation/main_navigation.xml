@@ -12,19 +12,27 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_navigation_more"
-            app:destination="@id/navigation_more">
-            <argument
-                android:name="myArg"
-                android:defaultValue="0"
-                app:argType="integer" />
-        </action>
+            app:destination="@id/navigation_more"/>
+        <argument
+            android:name="myArg"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_more"
         android:name="com.example.onlineshop.ui.modules.more_details.MoreDetailsFragment"
         android:label="@string/text_empty"
-        tools:layout="@layout/fragment_more_details" />
+        tools:layout="@layout/fragment_more_details" >
+        <action
+            android:id="@+id/action_navigation_more_to_navigation_market"
+            app:destination="@id/navigation_market" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_market"
+        android:name="com.example.onlineshop.ui.modules.market.MarketFragment"
+        android:label="@string/text_empty"
+        tools:layout="@layout/fragment_market" />
 
     <fragment
         android:id="@+id/navigation_profile"

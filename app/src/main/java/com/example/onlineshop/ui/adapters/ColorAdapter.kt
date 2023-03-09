@@ -15,20 +15,18 @@ class ColorAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             parent,
             false
         )
-        return MoreViewHolder(itemView)
+        return ColorViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val itemViewHolder = holder as ColorAdapter.MoreViewHolder
-        val currentUser = listColors[position]
-        itemViewHolder.bind(currentUser)
+        val itemViewHolder = holder as ColorAdapter.ColorViewHolder
+        val color = listColors[position]
+        itemViewHolder.bind(color)
     }
 
-    override fun getItemCount(): Int {
-        return listColors.size
-    }
+    override fun getItemCount() = listColors.size
 
-    inner class MoreViewHolder(
+    inner class ColorViewHolder(
         private val binding: ColorItemBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {

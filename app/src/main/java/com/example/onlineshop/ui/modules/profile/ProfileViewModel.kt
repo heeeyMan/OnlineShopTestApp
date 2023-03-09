@@ -27,7 +27,7 @@ class ProfileViewModel(
     }
 
     fun handleClick(item: ProfileItemType) {
-        when(item) {
+        when (item) {
             ProfileItemType.LOG_OUT -> router.backAuthScreen()
             else -> {}
         }

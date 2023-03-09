@@ -23,7 +23,7 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
-    private var recyclerView: RecyclerView? = null
+    private var profileRecyclerView: RecyclerView? = null
     private var profileAdapter: GroupAdapter<GroupieViewHolder>? = null
     private val click: OnProfileItemClickListener = this
     private val profileViewModel: ProfileViewModel by lazy {
@@ -40,8 +40,8 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         profileAdapter = GroupAdapter()
-        recyclerView = binding?.profileList
-        recyclerView?.apply {
+        profileRecyclerView = binding?.profileList
+        profileRecyclerView?.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = profileAdapter
         }
@@ -56,8 +56,8 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
     private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                val imageUri = data?.data
+                val intent: Intent? = result.data
+                val imageUri = intent?.data
                 binding?.icon?.setImageURI(imageUri)
             }
         }
@@ -66,7 +66,7 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         profileViewModel.apply {
             profileItems.observe(viewLifecycleOwner) {
-                recyclerView?.adapter = profileAdapter?.apply {
+                profileRecyclerView?.adapter = profileAdapter?.apply {
                     clear()
                     addAll(it)
                 }
@@ -77,14 +77,14 @@ class ProfileFragment : Fragment(), OnProfileItemClickListener {
         }
     }
 
+    override fun onProfileItemClick(item: ProfileItemType) {
+        profileViewModel.handleClick(item)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        recyclerView = null
+        profileRecyclerView = null
         profileAdapter = null
-    }
-
-    override fun onProfileItemClick(item: ProfileItemType) {
-        profileViewModel.handleClick(item)
     }
 }

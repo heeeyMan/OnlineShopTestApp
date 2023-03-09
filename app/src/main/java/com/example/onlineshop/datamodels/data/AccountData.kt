@@ -1,4 +1,4 @@
-package com.example.onlineshop.datamodels.items
+package com.example.onlineshop.datamodels.data
 
 import com.example.onlineshop.database.Entities.AccountEntity
 import com.example.onlineshop.utils.ZERO

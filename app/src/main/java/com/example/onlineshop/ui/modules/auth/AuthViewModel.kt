@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onlineshop.R
 import com.example.onlineshop.datamodels.enums.*
-import com.example.onlineshop.datamodels.items.AccountData
+import com.example.onlineshop.datamodels.data.AccountData
 import com.example.onlineshop.models.auth.IAuthModel
 import com.example.onlineshop.routers.auth.IAuthRouter
 import com.example.onlineshop.utils.EMPTY_STRING
@@ -24,7 +24,6 @@ class AuthViewModel(
     val dataBaseResponse = MutableLiveData<DataBaseResponse>()
     val textState = MutableLiveData<Pair<InputTextState, FieldType>>()
     private var currentScreenState = CurrentPage.SIGN_IN
-
     private var firstNameState = InputTextState.EMPTY
     private var lastNameState = InputTextState.EMPTY
     private var emailState = InputTextState.EMPTY
@@ -66,10 +65,8 @@ class AuthViewModel(
         }
     }
 
-    private fun getAccountState(account: AccountData): AccountState {
-        return runBlocking {
-            model.getAccountState(account, currentScreenState)
-        }
+    private fun getAccountState(account: AccountData) = runBlocking {
+        model.getAccountState(account, currentScreenState)
     }
 
     private fun handleAccountState(account: AccountData) {
@@ -85,9 +82,9 @@ class AuthViewModel(
     }
 
     private fun createAccount(account: AccountData) {
-        val state = getAccountState(account)
         viewModelScope.launch {
             try {
+                val state = getAccountState(account)
                 if (state == AccountState.ACCOUNT_NOT_BUSY) {
                     model.addAccount(account)
                     withContext(Dispatchers.Main) {
@@ -101,23 +98,20 @@ class AuthViewModel(
         }
     }
 
-    fun isClickable(): Boolean {
-        return when (currentScreenState) {
-            CurrentPage.LOGIN -> firstNameState.isCorrect() &&
-                    lastNameState.isCorrect()
+    fun isClickable() = when (currentScreenState) {
+        CurrentPage.LOGIN -> firstNameState.isCorrect() &&
+                lastNameState.isCorrect()
 
-            CurrentPage.SIGN_IN -> firstNameState.isCorrect() &&
-                    lastNameState.isCorrect() &&
-                    emailState.isCorrect()
-        }
+        CurrentPage.SIGN_IN -> firstNameState.isCorrect() &&
+                lastNameState.isCorrect() &&
+                emailState.isCorrect()
     }
 
-    fun authButtonBackgroundId(): Int {
-        return if (isClickable())
+    fun authButtonBackgroundId() =
+        if (isClickable())
             R.drawable.auth_button_state
         else
             R.drawable.auth_button_blocked
-    }
 
     private fun updateTextState(fieldType: FieldType, state: InputTextState) {
         when (fieldType) {
@@ -126,6 +120,4 @@ class AuthViewModel(
             FieldType.EMAIL -> emailState = state
         }
     }
-
-    fun getCurrentScreenState() = currentScreenState
 }

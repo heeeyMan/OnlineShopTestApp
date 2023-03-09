@@ -9,6 +9,7 @@ import com.example.onlineshop.models.home.IHomeModel
 import com.example.onlineshop.routers.home.IHomeRouter
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -20,6 +21,7 @@ class HomeViewModel(
 ) : ViewModel() {
     val tradeData = MutableLiveData<List<Item>>()
     val requestState = MutableLiveData<RequestState>()
+    val hintsList = MutableLiveData<List<String>>()
     fun initProfileList() {
         viewModelScope.launch {
             try {
@@ -58,5 +60,17 @@ class HomeViewModel(
 
     fun openItem(id: Int) {
         router.openMoreDetails(id)
+    }
+
+    fun handleSearchQuery(query: String) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                delay(1000L)
+                val answersList = model.getHintList(query)
+                withContext(Dispatchers.Main) {
+                    hintsList.postValue(answersList)
+                }
+            }
+        }
     }
 }

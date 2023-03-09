@@ -7,7 +7,7 @@ import com.example.onlineshop.ui.modules.auth.AuthViewModel
 
 class AuthAssembly(
     private val context: Context
-): IAuthAssembly {
+) : IAuthAssembly {
     override fun build(): AuthViewModel {
         val router = AuthRouter(context)
         val model = AuthModel()

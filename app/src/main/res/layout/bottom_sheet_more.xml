@@ -12,7 +12,6 @@
         android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/quantity"
         android:textSize="@dimen/text_size_9"
         android:textColor="@color/gray_550"
         android:layout_marginTop="@dimen/margin_14"

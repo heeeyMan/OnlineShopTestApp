@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-configuration android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-configuration android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -25,8 +26,6 @@
         </activity>
         <activity
             android:name=".ui.activities.MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="false" />
     </application>
-
 </manifest>

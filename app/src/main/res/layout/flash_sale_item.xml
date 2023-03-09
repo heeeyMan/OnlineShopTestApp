@@ -75,7 +75,7 @@
         android:paddingHorizontal="@dimen/padding_8"
         android:paddingTop="@dimen/padding_10"
         android:paddingBottom="@dimen/padding_8"
-        android:src="@drawable/like" />
+        android:src="@drawable/like_passive" />
 
     <TextView
         android:id="@+id/discount"
@@ -84,7 +84,7 @@
         android:layout_gravity="end"
         android:layout_marginTop="@dimen/margin_7"
         android:layout_marginEnd="@dimen/margin_8"
-        android:background="@drawable/sale_category_back"
+        android:background="@drawable/sale_category_back_9"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:textColor="@color/white"

@@ -12,7 +12,7 @@ class HomeAssembly(
     private val context: Context,
     private val navController: NavController,
     private val click: OnItemClickedListener
-): IHomeAssembly {
+) : IHomeAssembly {
     override fun build(): HomeViewModel {
         val networkService = NetworkService(context)
         val model = HomeModel(context, click, networkService)

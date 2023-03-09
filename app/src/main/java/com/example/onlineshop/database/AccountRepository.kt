@@ -1,8 +1,8 @@
 package com.example.onlineshop.database
 
 import com.example.onlineshop.database.Dao.AccountDao
-import com.example.onlineshop.datamodels.items.AccountData
-import com.example.onlineshop.datamodels.items.toAccountEntity
+import com.example.onlineshop.datamodels.data.AccountData
+import com.example.onlineshop.datamodels.data.toAccountEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.invoke
 import kotlinx.coroutines.withContext

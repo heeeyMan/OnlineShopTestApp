@@ -1,6 +1,8 @@
 package com.example.onlineshop.ui.modules.home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlineshop.assemblies.home.HomeAssembly
 import com.example.onlineshop.databinding.FragmentHomeBinding
-import com.example.onlineshop.ui.adapters.ColorAdapter
+import com.example.onlineshop.ui.adapters.HintsAdapter
 import com.example.onlineshop.ui.item_decorations.PaddingForLastElement
 import com.example.onlineshop.utils.BOTTOM_PADDING
 import com.example.onlineshop.utils.OnItemClickedListener
@@ -23,8 +25,10 @@ class HomeFragment : Fragment(), OnItemClickedListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
     private val click: OnItemClickedListener = this
-    private var recyclerView: RecyclerView? = null
+    private var homeRecyclerView: RecyclerView? = null
     private var homeAdapter: GroupAdapter<GroupieViewHolder>? = null
+    private var hintRecyclerView: RecyclerView? = null
+    private var hintAdapter: HintsAdapter? = null
     private val homeViewModel: HomeViewModel by lazy {
         HomeAssembly(
             requireContext(),
@@ -40,12 +44,19 @@ class HomeFragment : Fragment(), OnItemClickedListener {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeAdapter = GroupAdapter()
-        recyclerView = binding?.categoriesList
-        recyclerView?.apply {
+        hintAdapter = HintsAdapter()
+        homeRecyclerView = binding?.categoriesList
+        homeRecyclerView?.apply {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(PaddingForLastElement(BOTTOM_PADDING, requireContext()))
             adapter = homeAdapter
         }
+        hintRecyclerView = binding?.hintsList
+        hintRecyclerView?.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = hintAdapter
+        }
+        binding?.searchText?.addTextChangedListener(SearchListener())
 
         homeViewModel.apply {
             initProfileList()
@@ -62,7 +73,7 @@ class HomeFragment : Fragment(), OnItemClickedListener {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel.apply {
             tradeData.observe(viewLifecycleOwner) {
-                recyclerView?.adapter = homeAdapter?.apply {
+                homeRecyclerView?.adapter = homeAdapter?.apply {
                     clear()
                     addAll(it)
                 }
@@ -78,6 +89,9 @@ class HomeFragment : Fragment(), OnItemClickedListener {
                 }
                 hideProgressBar()
             }
+            hintsList.observe(viewLifecycleOwner) {
+                hintAdapter?.setMoreItems(it)
+            }
 
         }
     }
@@ -90,14 +104,33 @@ class HomeFragment : Fragment(), OnItemClickedListener {
         binding?.progressBar?.visibility = View.VISIBLE
     }
 
+    override fun onItemClick(id: Int) {
+        homeViewModel.openItem(id)
+    }
+
+    inner class SearchListener : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        }
+
+        override fun afterTextChanged(edit: Editable?) {
+            if (!edit.isNullOrEmpty()) {
+                binding?.hintsList?.visibility = View.VISIBLE
+                homeViewModel.handleSearchQuery(edit.toString())
+            } else {
+                binding?.hintsList?.visibility = View.GONE
+            }
+
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        recyclerView = null
+        homeRecyclerView = null
         homeAdapter = null
-    }
-
-    override fun onItemClick(id: Int) {
-        homeViewModel.openItem(id)
+        hintRecyclerView = null
+        hintAdapter = null
     }
 }

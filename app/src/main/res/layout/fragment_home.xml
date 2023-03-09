@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_9"
         android:autofillHints=""
-        android:background="@drawable/search_back"
+        android:background="@drawable/search_back_12"
         android:drawableEnd="@drawable/search"
         android:fontFamily="@font/poppins_regular"
         android:gravity="center"
@@ -32,6 +32,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_50" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hints_list"
+        android:layout_width="@dimen/view_size_230"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_33"
+        android:alpha="0.5"
+        android:background="@color/gray_300" />
 
     <TextView
         android:id="@+id/error_text"

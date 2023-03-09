@@ -13,27 +13,25 @@ import kotlinx.android.synthetic.main.latest_item.*
 class ImageAdapter(
     private val click: OnSmallImageClickedListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var listColors: ArrayList<String> = ArrayList()
+    private var imagesList: ArrayList<String> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView = SmallImageItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
-        return MoreViewHolder(itemView)
+        return ImageViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val itemViewHolder = holder as ImageAdapter.MoreViewHolder
-        val currentUser = listColors[position]
-        itemViewHolder.bind(currentUser)
+        val itemViewHolder = holder as ImageAdapter.ImageViewHolder
+        val image = imagesList[position]
+        itemViewHolder.bind(image)
     }
 
-    override fun getItemCount(): Int {
-        return listColors.size
-    }
+    override fun getItemCount() = imagesList.size
 
-    inner class MoreViewHolder(
+    inner class ImageViewHolder(
         private val binding: SmallImageItemBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
@@ -51,8 +49,8 @@ class ImageAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun setMoreItems(items: List<String>) {
-        listColors.clear()
-        listColors.addAll(items)
+        imagesList.clear()
+        imagesList.addAll(items)
         notifyDataSetChanged()
     }
 }

@@ -9,6 +9,8 @@ import com.example.onlineshop.datamodels.enums.BottomBarButtonType
 import com.example.onlineshop.datamodels.items.MoreDetailsItem
 import com.example.onlineshop.models.more_details.IMoreDetailsModel
 import com.example.onlineshop.routers.more_details.IMoreDetailsRouter
+import com.example.onlineshop.utils.EMPTY_STRING
+import com.example.onlineshop.utils.ONE
 import com.example.onlineshop.utils.ZERO
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
@@ -20,11 +22,12 @@ class MoreDetailsViewModel(
     private val router: IMoreDetailsRouter
 ) : ViewModel() {
     val moreDetailsData = MutableLiveData<MoreDetailsItem>()
-    val price = MutableLiveData<String>()
+    val price = MutableLiveData<Pair<String, String>>()
     val largeImage = MutableLiveData<Bitmap>()
     private var currentPrice = ZERO.toDouble()
+    private var currentUri = EMPTY_STRING
     private var priceOneProduct = ZERO.toDouble()
-    private var quantity = 1
+    private var quantity = ONE
     fun initMoreDetails() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
@@ -33,22 +36,28 @@ class MoreDetailsViewModel(
                     priceOneProduct = data.price.toDouble()
                     currentPrice = priceOneProduct
                     moreDetailsData.postValue(data)
+                    price.postValue(Pair(priceOneProduct.toString(), quantity.toString()))
                 }
             }
         }
     }
-    fun bottomBarClickHandle(type: BottomBarButtonType) {
-        when(type) {
-            BottomBarButtonType.ADD_CARD -> {
 
+    fun bottomBarClickHandle(type: BottomBarButtonType) {
+        when (type) {
+            BottomBarButtonType.ADD_CARD -> {
+                router.openMarket()
             }
             BottomBarButtonType.POSITIVE -> {
+                ++quantity
                 currentPrice += priceOneProduct
-                price.postValue(currentPrice.toString())
+                price.postValue(Pair(currentPrice.toString(), quantity.toString()))
             }
             BottomBarButtonType.NEGATIVE -> {
-                currentPrice -= priceOneProduct
-                price.postValue(currentPrice.toString())
+                if (quantity > ZERO) {
+                    --quantity
+                    currentPrice -= priceOneProduct
+                    price.postValue(Pair(currentPrice.toString(), quantity.toString()))
+                }
             }
         }
     }
@@ -56,11 +65,15 @@ class MoreDetailsViewModel(
     fun updateImage(uri: Uri) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
+                currentUri = uri.toString()
                 val image = Picasso.get().load(uri).get()
                 withContext(Dispatchers.Main) {
                     largeImage.postValue(image)
                 }
             }
         }
+    }
+    fun shareItemClicked() {
+        router.shareFriends(currentUri)
     }
 }

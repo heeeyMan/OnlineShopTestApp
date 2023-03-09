@@ -20,7 +20,6 @@ import com.example.onlineshop.utils.ZERO
 import com.example.onlineshop.utils.colorItem
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,16 +90,12 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.drawerBar.navView, navController)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, binding.drawerBar.drawerLayout)
-    }
+    override fun onSupportNavigateUp() =
+        NavigationUI.navigateUp(navController, binding.drawerBar.drawerLayout)
+
 
     private fun showBottomNavBar() {
         binding.bottomNavigationView.visibility = View.VISIBLE
-    }
-
-    private fun hideBottomNavBar() {
-        binding.bottomNavigationView.visibility = View.GONE
     }
 
     private fun showToolBar() {

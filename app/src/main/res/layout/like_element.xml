@@ -7,9 +7,10 @@
     android:layout_height="@dimen/view_size_95"
     android:background="@drawable/like_img_background">
     <ImageView
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/favorite"
+        android:src="@drawable/like_passive"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_17"
         app:tint="@color/blue_800" />
@@ -20,10 +21,11 @@
         android:src="@drawable/minus"
         app:tint="@color/blue_800" />
     <ImageView
+        android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:src="@drawable/more"
+        android:src="@drawable/share"
         android:layout_marginBottom="@dimen/margin_17"
         app:tint="@color/blue_800" />
 

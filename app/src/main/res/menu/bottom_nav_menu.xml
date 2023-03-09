@@ -7,7 +7,7 @@
         android:title="@string/text_empty" />
     <item
         android:id="@+id/navigation_favorite"
-        android:icon="@drawable/favorite"
+        android:icon="@drawable/like_passive"
         android:title="@string/text_empty" />
     <item
         android:id="@+id/navigation_market"

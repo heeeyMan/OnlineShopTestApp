@@ -15,7 +15,7 @@ import com.example.onlineshop.R
 import com.example.onlineshop.databinding.FragmentAuthBinding
 import com.example.onlineshop.assemblies.auth.AuthAssembly
 import com.example.onlineshop.datamodels.enums.FieldType
-import com.example.onlineshop.datamodels.items.AccountData
+import com.example.onlineshop.datamodels.data.AccountData
 import com.example.onlineshop.utils.ANNOTATION_KEY
 import com.example.onlineshop.utils.EMPTY_STRING
 import com.example.onlineshop.utils.ZERO
@@ -177,7 +177,7 @@ class AuthFragment : Fragment() {
         }
 
         override fun afterTextChanged(edit: Editable?) {
-            if(!edit.isNullOrEmpty())
+            if (!edit.isNullOrEmpty())
                 authViewModel.handleEmailText(edit.toString(), fieldType)
         }
     }

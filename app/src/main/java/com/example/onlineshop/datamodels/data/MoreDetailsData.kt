@@ -1,4 +1,4 @@
-package com.example.onlineshop.datamodels.items
+package com.example.onlineshop.datamodels.data
 
 import com.google.gson.annotations.SerializedName
 

@@ -3,7 +3,7 @@ package com.example.onlineshop.models.auth
 import com.example.onlineshop.database.Dependencies.accountRepository
 import com.example.onlineshop.datamodels.enums.AccountState
 import com.example.onlineshop.datamodels.enums.CurrentPage
-import com.example.onlineshop.datamodels.items.AccountData
+import com.example.onlineshop.datamodels.data.AccountData
 
 class AuthModel : IAuthModel {
     override suspend fun getAccountState(

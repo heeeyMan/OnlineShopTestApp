@@ -21,13 +21,12 @@ class FlashSaleDataModel(
 ) : Item() {
     @SuppressLint("UseCompatLoadingForDrawables", "StringFormatMatches")
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-
         Picasso.get().load(data.imageUrl).into(viewHolder.background_img)
         viewHolder.category_name.text = data.category
         viewHolder.item_name.text = data.name
         viewHolder.price.text = context.getString(R.string.price, data.price)
         viewHolder.discount.text = context.getString(R.string.discount, data.discount)
-        viewHolder.flash_sale_item.setOnClickListener{
+        viewHolder.flash_sale_item.setOnClickListener {
             click.onItemClick(data.id)
         }
     }
