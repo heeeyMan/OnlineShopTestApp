@@ -2,8 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="oval">
-            <size android:width="@dimen/circle_radius_40" android:height="@dimen/circle_radius_40" />
-            <padding android:bottom="@dimen/padding_10" android:left="@dimen/padding_23" android:right="@dimen/padding_23" android:top="@dimen/padding_13" />
+            <size android:width="@dimen/circle_radius_17" android:height="@dimen/circle_radius_17" />
             <solid android:color="@color/gray_200" />
         </shape>
     </item>
